@@ -41,6 +41,7 @@
         -->
         <hibernate.version>4.2.19.Final</hibernate.version>
         <spring.version>3.2.14.RELEASE</spring.version>
+        <spring.security.version>3.2.8.RELEASE</spring.security.version>
         <!-- 'root.basedir' is the path to the root [dspace-src] dir. It must be redefined by each child POM,
              as it is used to reference the LICENSE_HEADER and *.properties file(s) in that directory. -->
         <root.basedir>${basedir}</root.basedir>
@@ -146,6 +147,35 @@
                 <groupId>com.mycila</groupId>
                 <artifactId>license-maven-plugin</artifactId>
                 <version>2.6</version>
+             </plugin>
+             <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+             <plugin>
+             	<groupId>org.eclipse.m2e</groupId>
+             	<artifactId>lifecycle-mapping</artifactId>
+             	<version>1.0.0</version>
+             	<configuration>
+             		<lifecycleMappingMetadata>
+             			<pluginExecutions>
+             				<pluginExecution>
+             					<pluginExecutionFilter>
+             						<groupId>
+             							org.apache.maven.plugins
+             						</groupId>
+             						<artifactId>
+             							maven-antrun-plugin
+             						</artifactId>
+             						<versionRange>[1.7,)</versionRange>
+             						<goals>
+             							<goal>run</goal>
+             						</goals>
+             					</pluginExecutionFilter>
+             					<action>
+             						<ignore></ignore>
+             					</action>
+             				</pluginExecution>
+             			</pluginExecutions>
+             		</lifecycleMappingMetadata>
+             	</configuration>
              </plugin>
           </plugins>
       </pluginManagement>
@@ -1285,6 +1315,47 @@
               <version>3.0.0</version>
               <scope>provided</scope>
           </dependency>
+
+		<dependency>
+			<groupId>it.cineca.surplus.framework</groupId>
+			<artifactId>authorization</artifactId>
+			<version>15.10.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>it.cineca.surplus.framework</groupId>
+			<artifactId>configuration</artifactId>
+			<version>15.10.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>it.cineca.surplus.framework</groupId>
+			<artifactId>i18n</artifactId>
+			<version>15.10.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>it.cineca.surplus.framework</groupId>
+			<artifactId>menu</artifactId>
+			<version>15.10.2.0</version>
+		</dependency>
+		<dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring.security.version}</version>
+        </dependency>		
       </dependencies>
    </dependencyManagement>
 
@@ -1602,6 +1673,11 @@
             <name>restlet</name>
             <url>http://maven.restlet.org</url>
         </repository>
+        <repository>
+            <id>cineca-nexus-cineca-repository</id>
+            <name>cineca-nexus-cineca-repository</name>
+            <url>http://nexus.u-gov.it/nexus/content/groups/cineca-repository</url>
+       </repository>
     </repositories>
 
 </project>

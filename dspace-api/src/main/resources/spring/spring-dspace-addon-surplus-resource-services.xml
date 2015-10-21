@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<context:property-placeholder location="classpath:settings.properties,classpath:patch.properties,classpath:project.properties"/>
+	
+
+	<context:component-scan base-package="it.cilea.core.spring" />
+	<context:component-scan base-package="it.cilea.core.authorization" />
+	<context:component-scan base-package="it.cilea.core.i18n" />
+	<context:component-scan base-package="it.cilea.core.service" />
+	
+	
+
+	
+
+	<bean id="staticMessageSource" class="it.cilea.core.i18n.conf.StaticMessageSource">
+		<property name="basenames">
+			<list>
+				<value>${MESSAGE_PROPERTIES}</value>
+				<value>${PLATFORM_MESSAGE_PROPERTIES}</value>
+				<value>Messages</value>
+				<value>ir</value>
+			</list>
+		</property>
+		<property name="moduleBasenames">
+			<list>
+				<value>Messages</value>
+				<value>ir</value>
+			</list>
+		</property>
+
+	</bean>
+
+	<bean id="dynamicMessageSource" class="it.cilea.core.i18n.conf.DatabaseReloadableMessageSource"
+		init-method="init">
+		<constructor-arg index="0" value="ir" />
+	</bean>
+
+	<bean id="messageSource" class="it.cilea.core.i18n.conf.CileaMessageSource" />
+
+	<bean id="i18nService" parent="txAdviceTemplate">
+		<property name="target">
+			<bean class="it.cilea.core.i18n.service.I18nService">
+				<property name="i18nDao" ref="i18nDAO"></property>
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="i18nDAO" class="it.cilea.core.i18n.dao.hibernate.I18nDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactorySur"></property>
+		<property name="staticMessageSource" ref="staticMessageSource"></property>
+	</bean>
+	
+	<bean id="messageUtil" class="it.cilea.core.spring.util.MessageUtil" />
+	
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${MAIL_HOST}" />
+		<property name="javaMailProperties">
+			<props>
+			</props>
+		</property>
+	</bean>
+	
+	<bean id="controllerLogicFactory" class="it.cilea.core.spring.factory.impl.ControllerLogicFactoryDefaultImpl"/>
+	<bean id="fragmentControllerLogicFactory" class="it.cilea.core.fragment.factory.impl.FragmentControllerLogicFactoryDefaultImpl"/>
+	
+
+</beans>

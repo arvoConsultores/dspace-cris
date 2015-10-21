@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings 
+  xmlns="http://java.sun.com/xml/ns/persistence/orm"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_0.xsd"
+  version="2.0">
+	<entity class="it.cilea.core.view.model.ViewBuilder" metadata-complete="false">
+		<table name="VIEW_BUILDER" schema="public" />
+		<attributes>
+			<id name="id">
+				<generated-value strategy="SEQUENCE" generator="public.VIEW_BUILDER_SEQ" />
+				<sequence-generator name="public.VIEW_BUILDER_SEQ" sequence-name="public.VIEW_BUILDER_SEQ" allocation-size="1"/>
+			</id>
+		</attributes>
+	</entity>
+	<entity class="it.cilea.core.view.model.ViewBuilderValidator" metadata-complete="false">
+		<table name="VIEW_BUILDER_VALIDATOR" schema="public" />
+		<attributes>
+			<id name="id">
+				<generated-value strategy="SEQUENCE" generator="public.VIEW_BUILDER_VALIDATOR_SEQ" />
+				<sequence-generator name="public.VIEW_BUILDER_VALIDATOR_SEQ" sequence-name="public.VIEW_BUILDER_VALIDATOR_SEQ" allocation-size="1"/>
+			</id>
+		</attributes>
+	</entity>
+	<entity class="it.cilea.core.view.model.ViewBuilderWidgetLink" metadata-complete="false">
+		<table name="VIEW_BUILDER_WIDGET_LINK" schema="public" />
+		<attributes>
+			<id name="id">
+				<generated-value strategy="SEQUENCE" generator="public.VIEW_BUILDER_WIDGET_LINK_SEQ" />
+				<sequence-generator name="public.VIEW_BUILDER_WIDGET_LINK_SEQ" sequence-name="public.VIEW_BUILDER_WIDGET_LINK_SEQ" allocation-size="1"/>
+			</id>
+		</attributes>
+	</entity>
+	<entity class="it.cilea.core.view.model.ViewBuilderParameter" metadata-complete="false">
+		<table name="VIEW_BUILDER_PARAMETER" schema="public" />
+		<attributes>
+			<id name="id">
+				<generated-value strategy="SEQUENCE" generator="public.VIEW_BUILDER_PARAMETER_SEQ" />
+				<sequence-generator name="public.VIEW_BUILDER_PARAMETER_SEQ" sequence-name="public.VIEW_BUILDER_PARAMETER_SEQ" allocation-size="1"/>
+			</id>
+		</attributes>
+	</entity>
+</entity-mappings>

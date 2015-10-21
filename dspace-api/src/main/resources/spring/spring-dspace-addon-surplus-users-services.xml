@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<context:property-placeholder location="classpath:settings.properties,classpath:patch.properties,classpath:project.properties"/>
+	
+	<bean id="userDao" class="it.cilea.core.authorization.dao.hibernate.CoreUserDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactorySur"></property>
+	</bean>
+	
+	<bean id="resourceDao" class="it.cilea.core.authorization.dao.hibernate.ResourceDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactorySur"></property>
+	</bean>
+
+	<bean id="resourceLinkDao" class="it.cilea.core.authorization.dao.hibernate.ResourceLinkDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactorySur"></property>
+	</bean>
+	
+	<bean id="authorityDao" class="it.cilea.core.authorization.dao.hibernate.AuthorityDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactorySur"></property>
+	</bean>
+	
+	<bean id="identityDao" class="it.cilea.core.authorization.dao.hibernate.IdentityDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactorySur"></property>
+	</bean>
+
+	<bean id="authoritiesDao" class="it.cilea.core.authorization.dao.hibernate.AuthoritiesDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactorySur"></property>
+	</bean>
+
+	<bean id="authoritiesInfoDao" class="it.cilea.core.authorization.dao.hibernate.AuthoritiesInfoDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactorySur"></property>
+	</bean>
+
+<!-- 	<bean id="gaAuthorizationDao" class="it.cilea.ga.authorization.dao.hibernate.GaAuthorizationDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactorySur"></property>
+	</bean>
+
+	<bean id="teamDao" class="it.cilea.ga.dao.hibernate.TeamDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactorySur"></property>
+	</bean>
+ -->
+	<!-- <bean id="userService" parent="txAdviceTemplate">
+		<property name="target">
+			<bean class="it.cilea.ga.authorization.service.GaAuthorizationService">
+				<property name="userDao" ref="userDao"></property>
+				<property name="resourceDao" ref="resourceDao"></property>
+				<property name="resourceLinkDao" ref="resourceLinkDao"></property>
+				<property name="authorityDao" ref="authorityDao"></property>
+				<property name="identityDao" ref="identityDao"></property>
+				<property name="authoritiesDao" ref="authoritiesDao"></property>
+				<property name="authoritiesInfoDao" ref="authoritiesInfoDao"></property>
+				<property name="gaAuthorizationDao" ref="gaAuthorizationDao"></property>
+				<property name="teamDao" ref="teamDao"></property>
+				<property name="gaService" ref="rmService"></property>
+				<property name="messageUtil" ref="messageUtil"></property>
+			</bean>
+		</property>
+	</bean> -->
+
+	<bean id="authorizationService" parent="txAdviceTemplate">
+		<property name="target">
+			<bean class="it.cilea.core.authorization.service.AuthorizationService">
+				<property name="coreUserDao" ref="userDao"></property>
+				<property name="resourceDao" ref="resourceDao"></property>
+				<property name="resourceLinkDao" ref="resourceLinkDao"></property>
+				<property name="authorityDao" ref="authorityDao"></property>
+				<property name="identityDao" ref="identityDao"></property>
+				<property name="messageUtil" ref="messageUtil"></property>
+			</bean>
+		</property>
+	</bean>
+	
+
+	
+</beans>

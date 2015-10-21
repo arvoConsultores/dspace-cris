@@ -42,6 +42,7 @@
         <hibernate.version>4.2.19.Final</hibernate.version>
         <spring.version>3.2.14.RELEASE</spring.version>
         <spring.security.version>3.2.8.RELEASE</spring.security.version>
+        <displaytag.version>1.2-modified-for-POI-36</displaytag.version>
         <!-- 'root.basedir' is the path to the root [dspace-src] dir. It must be redefined by each child POM,
              as it is used to reference the LICENSE_HEADER and *.properties file(s) in that directory. -->
         <root.basedir>${basedir}</root.basedir>
@@ -1316,26 +1317,7 @@
               <scope>provided</scope>
           </dependency>
 
-		<dependency>
-			<groupId>it.cineca.surplus.framework</groupId>
-			<artifactId>authorization</artifactId>
-			<version>15.10.2.0</version>
-		</dependency>
-		<dependency>
-			<groupId>it.cineca.surplus.framework</groupId>
-			<artifactId>configuration</artifactId>
-			<version>15.10.2.0</version>
-		</dependency>
-		<dependency>
-			<groupId>it.cineca.surplus.framework</groupId>
-			<artifactId>i18n</artifactId>
-			<version>15.10.2.0</version>
-		</dependency>
-		<dependency>
-			<groupId>it.cineca.surplus.framework</groupId>
-			<artifactId>menu</artifactId>
-			<version>15.10.2.0</version>
-		</dependency>
+		
 		<dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-core</artifactId>
@@ -1355,7 +1337,64 @@
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
             <version>${spring.security.version}</version>
-        </dependency>		
+        </dependency>
+        <dependency>
+			<groupId>it.cineca.surplus.framework</groupId>
+			<artifactId>authorization</artifactId>
+			<version>15.10.4.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>it.cineca.surplus.framework</groupId>
+			<artifactId>configuration</artifactId>
+			<version>15.10.4.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>it.cineca.surplus.framework</groupId>
+			<artifactId>i18n</artifactId>
+			<version>15.10.4.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>it.cineca.surplus.framework</groupId>
+			<artifactId>menu</artifactId>
+			<version>15.10.4.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>it.cineca.surplus.framework</groupId>
+			<artifactId>widget</artifactId>
+			<version>15.10.4.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>it.cineca.surplus.framework</groupId>
+			<artifactId>search</artifactId>
+			<version>15.10.4.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>it.cineca.surplus.framework</groupId>
+			<artifactId>view</artifactId>
+			<version>15.10.4.0-SNAPSHOT</version>
+		</dependency>	
+			<dependency>
+				<groupId>displaytag</groupId>
+				<artifactId>displaytag</artifactId>
+				<version>${displaytag.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.slf4j</groupId>
+						<artifactId>jcl104-over-slf4j</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>displaytag</groupId>
+				<artifactId>displaytag-export-poi</artifactId>
+				<version>${displaytag.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>org.slf4j</groupId>
+						<artifactId>jcl104-over-slf4j</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>	
       </dependencies>
    </dependencyManagement>
 

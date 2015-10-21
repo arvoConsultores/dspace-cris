@@ -165,6 +165,11 @@
 	 -->	
 
   <!-- Servlets -->
+	<servlet>
+		<servlet-name>springmvc</servlet-name>
+		<servlet-class>it.cilea.core.view.servlet.CinecaDispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
 
   <servlet>
     <servlet-name>authorize</servlet-name>
@@ -498,6 +503,11 @@
     <servlet-class>org.dspace.app.webui.servlet.RequestItemServlet</servlet-class>
   </servlet>
     	
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>*.htm</url-pattern>
+	</servlet-mapping>
+
   <servlet-mapping>
     <servlet-name>shibboleth-login</servlet-name>
     <url-pattern>/shibboleth-login</url-pattern>

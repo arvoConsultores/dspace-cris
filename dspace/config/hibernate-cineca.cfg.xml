@@ -50,6 +50,12 @@
 		<mapping resource="orm/orm_authorization.xml" />
 		<mapping resource="orm/orm_i18n.xml" />
 		<mapping resource="orm/orm_menu.xml" />
+		<mapping resource="orm/orm_search.xml" />
+		<mapping resource="orm/orm_view.xml" />
+		<mapping resource="orm/orm_view_shared.xml" />
+		<mapping resource="orm/orm_widget.xml" />
+		<mapping resource="orm/orm_widget_shared.xml" />
 		<mapping resource="orm/orm_configuration.xml" />
+		
     </session-factory>
 </hibernate-configuration>

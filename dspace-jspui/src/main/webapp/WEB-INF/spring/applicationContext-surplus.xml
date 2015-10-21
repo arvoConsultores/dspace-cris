@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- The contents of this file are subject to the license and copyright detailed 
+	in the LICENSE and NOTICE files at the root of the source tree and available 
+	online at https://github.com/CILEA/dspace-cris/wiki/License -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<!-- Acquires the Surplus Utility Class with initialized Service Manager -->
+	<bean id="surplus" class="it.cineca.surplus.ir.context.Surplus" />
+
+	<!-- Acquires reference to treeNodeService -->
+	<bean id="surplusConfigurationService" factory-bean="surplus" factory-method="getSurplusConfigurationService" />
+	
+	<!-- Acquires reference to treeNodeService -->
+	<bean id="treeNodeService" factory-bean="surplus" factory-method="getTreeNodeService" />
+	<!-- Acquires reference to widgetService -->
+	<bean id="widgetService" factory-bean="surplus" factory-method="getWidgetService" />
+	<!-- Acquires reference to searchService -->
+	<bean id="searchService" factory-bean="surplus" factory-method="getSearchService" />
+	
+	<!-- Acquires reference to jaxbService -->
+	<bean id="jaxbService" factory-bean="surplus" factory-method="getJaxbService" />
+
+	<!-- Acquires reference to messageUtils -->
+	<bean id="messageUtil" factory-bean="surplus" factory-method="getMessageUtil" />
+
+	<bean id="i18nService" factory-bean="surplus" factory-method="getI18nService" />
+	<bean id="sqlSearchStrategy" factory-bean="surplus" factory-method="getSqlSearchStrategy" />
+	<bean id="hibernateSearchStrategy" factory-bean="surplus" factory-method="getHibernateSearchStrategy" />
+	
+	<bean id="orcidHubService" factory-bean="surplus" factory-method="getOrcidHubService" />
+
+	<bean id="orcidHubWorkFlow" factory-bean="surplus" factory-method="getOrcidHubWorkFlow" />
+
+
+
+	<bean id="controllerLogicFactory" factory-bean="surplus" factory-method="getControllerLogicFactory" />
+	<bean id="fragmentControllerLogicFactory" factory-bean="surplus" factory-method="getFragmentControllerLogicFactory" />
+	
+	
+	<bean id="dynamicMessageSource" factory-bean="surplus" factory-method="getDatabaseReloadableMessageSource" />
+	
+	<bean id="staticMessageSource" factory-bean="surplus" factory-method="getStaticMessageSource" />
+
+	<bean id="messageUtilConstantStartupListenerWorker"
+		class="it.cilea.core.spring.listener.MessageUtilConstantStartupListenerWorker">
+		<property name="messageUtil" ref="messageUtil"></property>
+	</bean>
+	
+
+	<bean id="authorizationService" factory-bean="surplus" factory-method="getAuthorizationService" />
+	
+			
+	<bean id="authorizationStartupListenerWorker" class="it.cilea.core.authorization.listener.AuthorizationStartupListenerWorker" />			
+
+	<bean id="contextSettingsStartupListenerWorker" class="it.cilea.core.configuration.listener.ContextSettingsStartupListenerWorker">
+		<property name="configurationService" ref="surplusConfigurationService" />
+	</bean>
+	
+	
+ 	<bean id="searchBuilderTemplate" factory-bean="surplus" factory-method="getSearchBuilderTemplate" />
+</beans>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
+			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<context:property-placeholder location="classpath:settings.properties,classpath:patch.properties,classpath:project.properties"/>
+				
+	<bean id="searchBuilderDao" class="it.cilea.core.search.dao.hibernate.SearchBuilderDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactorySur"></property>
+	</bean>
+	<bean id="searchBuilderWidgetLinkDao" class="it.cilea.core.search.dao.hibernate.SearchBuilderWidgetLinkDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactorySur"></property>
+	</bean>
+	<bean id="hibernateStrategyDao" class="it.cilea.core.search.dao.hibernate.HibernateStrategyDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactorySur"></property>
+	</bean>
+	<bean id="sqlStrategyDao" class="it.cilea.core.search.dao.hibernate.SqlStrategyDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactorySur"></property>
+	</bean>
+
+	<bean id="searchService" parent="txAdviceTemplate">
+		<property name="target">
+			<bean class="it.cilea.core.search.service.SearchService">
+				<property name="searchBuilderDao" ref="searchBuilderDao"></property>
+				<property name="searchBuilderWidgetLinkDao" ref="searchBuilderWidgetLinkDao"></property>
+				<property name="messageUtil" ref="messageUtil"></property>
+			</bean>
+		</property>
+	</bean>
+	<bean id="sqlSearchStrategy" class="it.cilea.core.search.strategy.impl.sql.SqlSearchStrategy">
+		<property name="sqlStrategyDao" ref="sqlStrategyDao"></property>
+	</bean>
+	<bean id="hibernateSearchStrategy" class="it.cilea.core.search.strategy.impl.hibernate.HibernateSearchStrategy">
+		<property name="hibernateStrategyDao" ref="hibernateStrategyDao"></property>
+	</bean>	
+
+				
+	<bean id="widgetDAO" class="it.cilea.core.widget.dao.hibernate.WidgetDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactorySur"></property>
+	</bean>
+	<bean id="widgetDictionaryDao" class="it.cilea.core.widget.dao.hibernate.WidgetDictionaryDaoHibernate">
+		<property name="sessionFactory" ref="sessionFactorySur"></property>
+	</bean>
+	
+	<bean id="widgetService" parent="txAdviceTemplate">
+		<property name="target">
+			<bean class="it.cilea.core.widget.service.WidgetService">
+				<property name="widgetDao" ref="widgetDAO"></property>
+				<property name="widgetDictionaryDao" ref="widgetDictionaryDao"></property>
+				<property name="messageUtil" ref="messageUtil"></property>
+			</bean>
+		</property>
+	</bean>
+	<bean class="it.cilea.core.search.util.SearchBuilderTemplate" id="searchBuilderTemplate" />
+</beans>

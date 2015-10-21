@@ -5,11 +5,5 @@
 <title><fmt:message key="${currentViewBuilder.titleKey}"/></title>
 <div class="page-header"><div class="page-title"><h3><fmt:message key="${currentViewBuilder.titleKey}"/></h3></div></div>
 <div class="form-horizontal">
-	<c:forEach items="${command.metadataMap['12']}" var="aaa">
-		${aaa }
-	</c:forEach>
-	
-<%--
 	<view:viewBuilder identifier="${cinecaRealViewName}"/>
-	 --%>
 </div>

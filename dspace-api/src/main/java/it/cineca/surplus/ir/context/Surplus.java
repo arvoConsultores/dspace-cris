@@ -1,5 +1,8 @@
 package it.cineca.surplus.ir.context;
 
+import org.dspace.content.service.CollectionService;
+import org.dspace.content.service.ItemService;
+import org.dspace.content.service.WorkspaceItemService;
 import org.dspace.utils.DSpace;
 
 import it.cilea.core.authorization.service.AuthorizationService;
@@ -114,5 +117,17 @@ public class Surplus {
 
 	public SearchBuilderTemplate getSearchBuilderTemplate() {
 		return dspace.getServiceManager().getServiceByName("searchBuilderTemplate", SearchBuilderTemplate.class);
+	}
+
+	public CollectionService getCollectionService() {
+		return dspace.getServiceManager().getServiceByName("collectionService", CollectionService.class);
+	}
+
+	public WorkspaceItemService getWorkspaceItemService() {
+		return dspace.getServiceManager().getServiceByName("workspaceItemService", WorkspaceItemService.class);
+	}
+
+	public ItemService getItemService() {
+		return dspace.getServiceManager().getServiceByName("itemService", ItemService.class);
 	}
 }

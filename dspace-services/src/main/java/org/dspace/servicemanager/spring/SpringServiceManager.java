@@ -111,8 +111,7 @@ public final class SpringServiceManager implements ServiceManagerSystem {
                 }
             }
             // if still no luck then try by type only
-            if (name == null 
-                    && bean == null) {
+            if (bean == null) {
                 try {
                     Map<String, T> map = applicationContext.getBeansOfType(type);
                     if (map.size() == 1) {

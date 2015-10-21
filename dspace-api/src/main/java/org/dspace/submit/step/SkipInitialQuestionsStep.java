@@ -51,10 +51,13 @@ public class SkipInitialQuestionsStep extends AbstractProcessingStep
             AuthorizeException
     {
         InProgressSubmission submissionItem = subInfo.getSubmissionItem();
-        submissionItem.setMultipleFiles(true);
-        submissionItem.setMultipleTitles(true);
-        submissionItem.setPublishedBefore(true);
-        ContentServiceFactory.getInstance().getInProgressSubmissionService(submissionItem).update(context, submissionItem);
+		if (submissionItem != null) {
+			submissionItem.setMultipleFiles(true);
+			submissionItem.setMultipleTitles(true);
+			submissionItem.setPublishedBefore(true);
+			ContentServiceFactory.getInstance().getInProgressSubmissionService(submissionItem).update(context,
+					submissionItem);
+		}
         return STATUS_COMPLETE;
     }
 

@@ -15,3 +15,4 @@
 <%@ taglib uri="http://www.cineca.it/config" prefix="config" %>
 <%@ taglib uri="http://www.cineca.it/authz" prefix="cineca-authz" %>
 <%@ taglib uri="http://www.cineca.it/i18n" prefix="i18n" %>
+<%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>

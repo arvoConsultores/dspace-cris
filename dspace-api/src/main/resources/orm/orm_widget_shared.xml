@@ -14,6 +14,7 @@
 	<entity class="it.cilea.core.widget.model.impl.command.CommandSelectAndMoveWidget" metadata-complete="false"/>
 	<entity class="it.cilea.core.widget.model.impl.command.CommandSelectWidget" metadata-complete="false"/>
 	<entity class="it.cilea.core.widget.model.impl.command.CommandTextAreaWidget" metadata-complete="false"/>
+	<entity class="it.cilea.core.widget.model.impl.command.CommandTextListWidget" metadata-complete="false"/>
 	<entity class="it.cilea.core.widget.model.impl.command.CommandTextWidget" metadata-complete="false"/>
 	<entity class="it.cilea.core.widget.model.impl.command.DisplayTagColumnWidget" metadata-complete="false"/>
 	<entity class="it.cilea.core.widget.model.impl.command.DisplayTagTableWidget" metadata-complete="false"/>

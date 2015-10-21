@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/security
+	http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+	<http auto-config="true">
+		<intercept-url pattern="/admin**" access="ROLE_USER" />
+		<form-login 
+		    login-page="/login" 
+		    default-target-url="/welcome" 
+			authentication-failure-url="/login?error" 
+			username-parameter="username"
+			password-parameter="password" />
+		<logout logout-success-url="/login?logout" />
+		<!-- enable csrf protection -->
+		<csrf/>
+	</http>
+
+	<authentication-manager>
+		<authentication-provider>
+		  <user-service>
+			<user name="mkyong" password="123456" authorities="ROLE_USER" />
+		  </user-service>
+		</authentication-provider>
+	</authentication-manager>
+	
+<!-- 
+	<context:property-placeholder location="classpath:cas.properties,classpath:settings.properties,classpath:patch.properties,classpath:project.properties"/>
+
+	<sec:http pattern="/authorization/changeCookieUserSettings.htm" security="none" />
+	<sec:http pattern="/authorization/deleteCookie.htm" security="none" />
+	<sec:http pattern="/authorization/updateCookieValue.htm" security="none" />
+
+    <sec:http pattern="/rest/**" create-session="never" access-decision-manager-ref="myAccessDecisionManagerBean" authentication-manager-ref="authenticationManager">
+	 	<sec:intercept-url pattern="/**" access="ROLE_AUTHENTICATED" requires-channel="https"/>
+		<sec:http-basic />
+	</sec:http>
+
+	<sec:http entry-point-ref="casProcessingFilterEntryPoint" access-decision-manager-ref="myAccessDecisionManagerBean" authentication-manager-ref="authenticationManager" >
+        <sec:intercept-url pattern="/spring-security" access="ROLE_AUTHENTICATED" />
+        <sec:intercept-url pattern="/spring-security/**" access="ROLE_AUTHENTICATED" />
+        <sec:logout logout-success-url="/cas-logout.jsp" invalidate-session="false" />        
+        <sec:custom-filter ref="casAuthenticationFilter" after="CAS_FILTER"/>
+        <sec:access-denied-handler error-page="/error403.htm"/>
+    </sec:http>
+    
+	<sec:authentication-manager alias="authenticationManager">
+		
+		<sec:authentication-provider ref="dbAuthentication"/>
+        <sec:authentication-provider ref="casAuthenticationProvider"/>
+    </sec:authentication-manager>    
+	
+    <bean id="myAccessDecisionManagerBean" class="it.cilea.core.authorization.service.CileaAccessDecisionManager"/>
+
+    <bean id="casAuthenticationFilter" class="org.springframework.security.cas.web.CasAuthenticationFilter">
+        <property name="authenticationManager" ref="authenticationManager"/>
+        <property name="authenticationFailureHandler">
+            <bean class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">
+                <property name="defaultFailureUrl" value="/error403.htm"/>
+            </bean>
+        </property>
+        <property name="authenticationSuccessHandler" ref="authSuccessHandlerCookie"/>
+    </bean>    
+    
+    <bean id="authSuccessHandlerCookie" class="it.cilea.core.authorization.model.impl.AuthenticationSuccessHandlerImpl"/>
+    
+    
+    <bean id="casProcessingFilterEntryPoint" class="it.cilea.core.authorization.service.MultipleCasAuthenticationEntryPoint">
+        <property name="loginUrl" value="${au.securityContext.casProcessingFilterEntryPoint.loginUrl}"/>        
+        <property name="serviceProperties" ref="auServiceProperties"/>
+    </bean>
+    
+    <bean id="casAuthenticationProvider" class="org.springframework.security.cas.authentication.CasAuthenticationProvider">
+        <property name="userDetailsService" ref="userService"/>
+        <property name="serviceProperties" ref="auServiceProperties" />
+        <property name="ticketValidator">
+            <bean class="org.jasig.cas.client.validation.Cas20ServiceTicketValidator">
+                <constructor-arg index="0" value="${au.securityContext.ticketValidator.casServerUrlPrefix}" />                
+            </bean>
+        </property>
+        <property name="key" value="internalCas"/>
+    </bean>
+    
+    <bean id="auServiceProperties" class="org.springframework.security.cas.ServiceProperties">
+        <property name="service" value="${au.securityContext.serviceProperties.service}"/>
+        <property name="sendRenew" value="false"/>
+    </bean>    
+    
+	<bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler">
+		<property name="permissionEvaluator"><bean class="it.cilea.core.authorization.service.CileaPermissionEvaluator"/></property>
+	</bean>
+
+	<bean id="iRDataAccessLogic" class="it.cineca.surplus.ir.authorization.IRDataAccessLogic"/>
+	
+	<bean id="authorizeItemActions" class="it.cineca.surplus.ir.authorization.AuthorizeItemActions">
+		<property name="dataAccessLogic" ref="iRDataAccessLogic"/>
+	</bean>
+-->
+</beans:beans>

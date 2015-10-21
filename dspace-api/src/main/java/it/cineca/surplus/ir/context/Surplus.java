@@ -19,6 +19,7 @@ import it.cilea.core.search.util.SearchBuilderTemplate;
 import it.cilea.core.service.JaxbService;
 import it.cilea.core.spring.factory.ControllerLogicFactory;
 import it.cilea.core.spring.util.MessageUtil;
+import it.cilea.core.view.service.ViewService;
 import it.cilea.core.widget.service.WidgetService;
 
 public class Surplus {
@@ -51,6 +52,10 @@ public class Surplus {
 
 	public I18nService getI18nService() {
 		return dspace.getServiceManager().getServiceByName("i18nService", I18nService.class);
+	}
+
+	public ViewService getViewService() {
+		return dspace.getServiceManager().getServiceByName("viewService", ViewService.class);
 	}
 
 	public SqlSearchStrategy getSqlSearchStrategy() {

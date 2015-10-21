@@ -20,6 +20,7 @@
 	<bean id="widgetService" factory-bean="surplus" factory-method="getWidgetService" />
 	<!-- Acquires reference to searchService -->
 	<bean id="searchService" factory-bean="surplus" factory-method="getSearchService" />
+	<bean id="viewService" factory-bean="surplus" factory-method="getViewService" />
 	
 	<!-- Acquires reference to jaxbService -->
 	<bean id="jaxbService" factory-bean="surplus" factory-method="getJaxbService" />
@@ -54,11 +55,15 @@
 	<bean id="authorizationService" factory-bean="surplus" factory-method="getAuthorizationService" />
 	
 			
-	<bean id="authorizationStartupListenerWorker" class="it.cilea.core.authorization.listener.AuthorizationStartupListenerWorker" />			
+	<bean id="authorizationStartupListenerWorker" class="it.cilea.core.authorization.listener.AuthorizationStartupListenerWorker" />
+				
 
 	<bean id="contextSettingsStartupListenerWorker" class="it.cilea.core.configuration.listener.ContextSettingsStartupListenerWorker">
 		<property name="configurationService" ref="surplusConfigurationService" />
 	</bean>
+	<bean id="viewStartupListenerWorker" class="it.cilea.core.view.listener.ViewStartupListenerWorker" />
+	<bean id="searchStartupListenerWorker" class="it.cilea.core.search.listener.SearchStartupListenerWorker" />
+	<bean id="widgetStartupListenerWorker" class="it.cilea.core.widget.listener.WidgetStartupListenerWorker" />
 	
 	
  	<bean id="searchBuilderTemplate" factory-bean="surplus" factory-method="getSearchBuilderTemplate" />

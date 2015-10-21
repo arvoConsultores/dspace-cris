@@ -41,6 +41,7 @@
         -->
         <hibernate.version>4.2.19.Final</hibernate.version>
         <spring.version>3.2.14.RELEASE</spring.version>
+        <opensymphony.sitemesh.version>2.3</opensymphony.sitemesh.version>
         <spring.security.version>3.2.8.RELEASE</spring.security.version>
         <displaytag.version>1.2-modified-for-POI-36</displaytag.version>
         <!-- 'root.basedir' is the path to the root [dspace-src] dir. It must be redefined by each child POM,
@@ -1330,14 +1331,14 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-web</artifactId>
-            <version>${spring.security.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-config</artifactId>
             <version>${spring.security.version}</version>
         </dependency>
+        <dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
         <dependency>
 			<groupId>it.cineca.surplus.framework</groupId>
 			<artifactId>authorization</artifactId>
@@ -1395,6 +1396,11 @@
 					</exclusion>
 				</exclusions>
 			</dependency>	
+			<dependency>
+				<groupId>opensymphony</groupId>
+				<artifactId>sitemesh</artifactId>
+				<version>${opensymphony.sitemesh.version}</version>
+			</dependency>
       </dependencies>
    </dependencyManagement>
 

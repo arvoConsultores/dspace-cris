@@ -1,0 +1,7 @@
+<decorators defaultdir="/decorator">
+	
+	<decorator name="default" page="default.jsp">
+		<pattern>*.htm</pattern>
+	</decorator>
+	
+</decorators>

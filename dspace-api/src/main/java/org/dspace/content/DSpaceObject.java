@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.UUID;
 
 import javax.persistence.CascadeType;
@@ -29,6 +30,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import org.dspace.authorize.ResourcePolicy;
+import org.dspace.comparator.PlaceStringComparator;
 import org.dspace.handle.Handle;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -182,14 +184,55 @@ public abstract class DSpaceObject implements Serializable {
 		this.modified = true;
 	}
 
+	@Transient
 	public Map<String, List<String>> getMetadataMap() {
 		Map<String, List<String>> map = new HashMap<String, List<String>>();
 		for (MetadataValue metadataValue : this.getMetadata()) {
-			if (!map.containsKey(metadataValue.getMetadataField().getFieldID() + ""))
-				map.put(metadataValue.getMetadataField().getFieldID() + "", new ArrayList<String>());
-			map.get(metadataValue.getMetadataField().getFieldID() + "").add(metadataValue.getValue());
+			if (!map.containsKey(metadataValue.getMetadataField().toString()))
+				map.put(metadataValue.getMetadataField().toString(), new ArrayList<String>());
+			map.get(metadataValue.getMetadataField().toString()).add(metadataValue.getValue());
 		}
 		return map;
 
+	}
+
+	@Transient
+	Map<String, List<String>> metadataFieldMap = null;
+
+	@Transient
+	public Map<String, List<String>> getMetadataFieldMap() {
+		if (metadataFieldMap != null)
+			return metadataFieldMap;
+		metadataFieldMap = new HashMap<String, List<String>>();
+		for (MetadataValue metadataValue : this.getMetadata()) {
+			if (!metadataFieldMap.containsKey(metadataValue.getMetadataField().toString()))
+				metadataFieldMap.put(metadataValue.getMetadataField().toString(), new ArrayList<String>());
+			metadataFieldMap.get(metadataValue.getMetadataField().toString()).add(metadataValue.getValue());
+		}
+		return metadataFieldMap;
+
+	}
+
+	@Transient
+	Map<String, Map<String, String>> metadataFieldPlaceMap = null;
+
+	@Transient
+	public Map<String, Map<String, String>> getMetadataFieldPlaceMap() {
+		if (metadataFieldPlaceMap != null)
+			return metadataFieldPlaceMap;
+		metadataFieldPlaceMap = new HashMap<String, Map<String, String>>();
+		for (MetadataValue metadataValue : this.getMetadata()) {
+			if (!metadataFieldPlaceMap.containsKey(metadataValue.getMetadataField().toString()))
+				metadataFieldPlaceMap.put(metadataValue.getMetadataField().toString(),
+						new TreeMap<String, String>(new PlaceStringComparator()));
+			metadataFieldPlaceMap.get(metadataValue.getMetadataField().toString()).put(metadataValue.getPlace() + "",
+					metadataValue.getValue());
+		}
+		return metadataFieldPlaceMap;
+
+	}
+
+	public void setMetadataFieldPlaceMap(Map<String, Map<String, String>> metadataFieldPlaceMap) {
+		this.metadataFieldPlaceMap = metadataFieldPlaceMap;
 	}
 }

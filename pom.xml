@@ -40,10 +40,12 @@
             Upgrading the spring version will make the XMLUI crash
         -->
         <hibernate.version>4.2.19.Final</hibernate.version>
+        <org.hibernate.validator.version>4.3.1.Final</org.hibernate.validator.version>
         <spring.version>3.2.14.RELEASE</spring.version>
         <opensymphony.sitemesh.version>2.3</opensymphony.sitemesh.version>
         <spring.security.version>3.2.8.RELEASE</spring.security.version>
         <displaytag.version>1.2-modified-for-POI-36</displaytag.version>
+       <javax.validation.version>1.0.0.GA</javax.validation.version>
         <!-- 'root.basedir' is the path to the root [dspace-src] dir. It must be redefined by each child POM,
              as it is used to reference the LICENSE_HEADER and *.properties file(s) in that directory. -->
         <root.basedir>${basedir}</root.basedir>
@@ -1401,6 +1403,18 @@
 				<artifactId>sitemesh</artifactId>
 				<version>${opensymphony.sitemesh.version}</version>
 			</dependency>
+			
+			<dependency>
+				<groupId>javax.validation</groupId>
+				<artifactId>validation-api</artifactId>
+				<version>${javax.validation.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.hibernate</groupId>
+				<artifactId>hibernate-validator</artifactId>
+				<version>${org.hibernate.validator.version}</version>
+			</dependency>
+			
       </dependencies>
    </dependencyManagement>
 

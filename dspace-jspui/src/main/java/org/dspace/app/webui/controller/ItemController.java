@@ -26,6 +26,13 @@ public class ItemController {
 
 		return new ModelAndView("showItem", "command", item);
 	}
+	
+	@RequestMapping("/get")
+	public ModelAndView getItem(@RequestParam String itemId, HttpServletRequest request) throws Exception {
+		Context context = UIUtil.obtainContext(request);
+		Item item = itemService.findByIdOrLegacyId(context, itemId);
+		return new ModelAndView("showItem", "command", item);
+	}
 
 	public void setItemService(ItemService itemService) {
 		this.itemService = itemService;

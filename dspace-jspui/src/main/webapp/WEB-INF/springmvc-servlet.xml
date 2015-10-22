@@ -33,7 +33,7 @@
 
 	<context:component-scan base-package="it.cilea.core.view.controller"/>
 	<context:component-scan base-package="org.dspace.app.webui.controller"/>
-
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
 	<!--
 		- Message source for this context, loaded from localized "messages_xx" files.
 		- Could also reside in the root application context, as it is generic,
@@ -43,4 +43,9 @@
     	<property name="location" value="classpath:settings.properties" />
 	</bean>
 	<mvc:interceptors><bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" p:paramName="changeLocale" /></mvc:interceptors>
-</beans>
+	<bean id="customEditorList"	class="java.util.ArrayList">
+		<constructor-arg index="0">
+			<list>						
+			</list>
+		</constructor-arg>				
+	</bean>	</beans>

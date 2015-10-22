@@ -5,22 +5,24 @@
 	<%@ page contentType="text/html;charset=UTF-8" %>
 	<%@ page import="java.util.List"%>
 <%@ page import="java.util.Enumeration"%>
+<%@ page import="org.dspace.core.ConfigurationManager" %>
+<%@ page import="org.dspace.app.util.Util" %>
 <%
     String title = "ciao";//(String) request.getAttribute("dspace.layout.title");
     String navbar = "on";//(String) request.getAttribute("dspace.layout.navbar");
     boolean locbar = true;//((Boolean) request.getAttribute("dspace.layout.locbar")).booleanValue();
 
-    String siteName = "ciao";//ConfigurationManager.getProperty("dspace.name");
+    String siteName = ConfigurationManager.getProperty("dspace.name");
     String feedRef = "NONE";//(String)request.getAttribute("dspace.layout.feedref");
-    boolean osLink = false;//ConfigurationManager.getBooleanProperty("websvc.opensearch.autolink");
-    String osCtx = "ciao";//ConfigurationManager.getProperty("websvc.opensearch.svccontext");
-    String osName = "ciao";//ConfigurationManager.getProperty("websvc.opensearch.shortname");
+    boolean osLink = ConfigurationManager.getBooleanProperty("websvc.opensearch.autolink");
+    String osCtx = ConfigurationManager.getProperty("websvc.opensearch.svccontext");
+    String osName = ConfigurationManager.getProperty("websvc.opensearch.shortname");
     List parts = (List)request.getAttribute("dspace.layout.linkparts");
     String extraHeadData = (String)request.getAttribute("dspace.layout.head");
     String extraHeadDataLast = (String)request.getAttribute("dspace.layout.head.last");
-    String dsVersion = "ciao";//Util.getSourceVersion();
+    String dsVersion = Util.getSourceVersion();
     String generator = dsVersion == null ? "DSpace" : "DSpace "+dsVersion;
-    String analyticsKey = "ciao";//ConfigurationManager.getProperty("jspui.google.analytics.key");
+    String analyticsKey = ConfigurationManager.getProperty("jspui.google.analytics.key");
 %>
 
 

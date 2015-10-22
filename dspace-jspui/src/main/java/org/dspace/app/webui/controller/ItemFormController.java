@@ -71,32 +71,36 @@ public class ItemFormController extends Spring3CoreFormControllerFragmentEnabled
 	}
 
 	@RequestMapping(value = { "**/form", "/form", "**/new", "/new" }, method = RequestMethod.POST)
-	public ModelAndView processPost(@Valid @ModelAttribute("command") Item command, BindingResult result,
+	public ModelAndView processPost(@Valid @ModelAttribute("command") Item item, BindingResult result,
 			HttpServletRequest request) throws Exception {
 		if (request.getParameter("cancel") != null)
 			return new ModelAndView(getControllerLogic(request.getServletPath()).getViewUndo());
 
-		executeXmlValidation(request, command, (Errors) result,
+		executeXmlValidation(request, item, (Errors) result,
 				getControllerLogic(request.getServletPath()).getValidatorList());
 
 		if (result.hasErrors()) {
-			genericReferenceDataNoCheckFormSubmission(command, result, request);
-			return processGet(command, request);
+			genericReferenceDataNoCheckFormSubmission(item, result, request);
+			return processGet(item, request);
 		}
 		Context context = UIUtil.obtainContext(request);
 		// avrò l'elenco dei field presenti sulla pagina
 		// accedo alla mappa per quei field
-		for (String fieldString : command.getMetadataFieldPlaceMap().keySet()) {
-			String[] fieldArray = StringUtils.split(fieldString,"_");
+
+		for (String fieldString : item.getMetadataFieldPlaceMap().keySet()) {
+			String[] fieldArray = StringUtils.split(fieldString, "_");
 			MetadataField metadataField = metadataFieldService.findByElement(context, fieldArray[0], fieldArray[1],
 					fieldArray.length > 2 ? fieldArray[2] : null);
 			List<String> values = new ArrayList<String>();
-			for (String placeString : command.getMetadataFieldPlaceMap().get(fieldString).keySet())
-				values.add(command.getMetadataFieldPlaceMap().get(fieldString).get(placeString));
-			itemService.addMetadata(context, command, metadataField, "it", values, null, null);
+			for (String placeString : item.getMetadataFieldPlaceMap().get(fieldString).keySet())
+				values.add(item.getMetadataFieldPlaceMap().get(fieldString).get(placeString));
+			itemService.clearMetadata(context, item, metadataField.getMetadataSchema().getName(),
+					metadataField.getElement(), metadataField.getQualifier(), Item.ANY);
+			itemService.addMetadata(context, item, metadataField, "it", values, null, null);
 		}
+		context.complete();
 
-		// gaService.saveOrUpdateWithFragment(command,
+		// gaService.saveOrUpdateWithFragment(item,
 		// FragmentUtil.extractFragmentInfoMaps(request), gaService);
 
 		// saveMessage(request, messageUtil.findMessage("action." + (firstInsert
@@ -104,27 +108,27 @@ public class ItemFormController extends Spring3CoreFormControllerFragmentEnabled
 		// return new
 		// ModelAndView(getControllerLogic(request.getServletPath()).getViewSuccess(),
 		// "itemId",
-		// command.getID());
-		return new ModelAndView("redirect:/item/form.htm", "itemId", command.getID());
+		// item.getID());
+		return new ModelAndView("redirect:/item/form.htm", "itemId", item.getID().toString());
 	}
 
 	@ModelAttribute()
-	public void genericReferenceData(@Valid Item command, BindingResult result, HttpServletRequest request)
+	public void genericReferenceData(@Valid Item item, BindingResult result, HttpServletRequest request)
 			throws Exception {
 		if (!isFormSubmission(request) && StringUtils
 				.isNotBlank(getControllerLogic(request.getServletPath()).getMultipleChoiceListBeanName())) {
 			List<MultipleChoice> list = (List<MultipleChoice>) context
 					.getBean(getControllerLogic(request.getServletPath()).getMultipleChoiceListBeanName());
-			super.genericReferenceData(command, request, list);
+			super.genericReferenceData(item, request, list);
 		}
 	}
 
-	public void genericReferenceDataNoCheckFormSubmission(@Valid Item command, BindingResult result,
+	public void genericReferenceDataNoCheckFormSubmission(@Valid Item item, BindingResult result,
 			HttpServletRequest request) throws Exception {
 		if (StringUtils.isNotBlank(getControllerLogic(request.getServletPath()).getMultipleChoiceListBeanName())) {
 			List<MultipleChoice> list = (List<MultipleChoice>) context
 					.getBean(getControllerLogic(request.getServletPath()).getMultipleChoiceListBeanName());
-			super.genericReferenceData(command, request, list);
+			super.genericReferenceData(item, request, list);
 		}
 	}
 

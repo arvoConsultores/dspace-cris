@@ -2,6 +2,7 @@ package it.cineca.surplus.ir.context;
 
 import org.dspace.content.service.CollectionService;
 import org.dspace.content.service.ItemService;
+import org.dspace.content.service.MetadataFieldService;
 import org.dspace.content.service.WorkspaceItemService;
 import org.dspace.utils.DSpace;
 
@@ -129,5 +130,9 @@ public class Surplus {
 
 	public ItemService getItemService() {
 		return dspace.getServiceManager().getServiceByName("itemService", ItemService.class);
+	}
+
+	public MetadataFieldService getMetadataFieldService() {
+		return dspace.getServiceManager().getServiceByName("metadataFieldService", MetadataFieldService.class);
 	}
 }

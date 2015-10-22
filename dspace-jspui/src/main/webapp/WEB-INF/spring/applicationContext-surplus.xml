@@ -70,5 +70,6 @@
  	<bean id="collectionService" factory-bean="surplus" factory-method="getCollectionService" />
  	<bean id="workspaceItemService" factory-bean="surplus" factory-method="getWorkspaceItemService" />
  	<bean id="itemService" factory-bean="surplus" factory-method="getItemService" />
+ 	<bean id="metadataFieldService" factory-bean="surplus" factory-method="getMetadataFieldService" />
  	
 </beans>

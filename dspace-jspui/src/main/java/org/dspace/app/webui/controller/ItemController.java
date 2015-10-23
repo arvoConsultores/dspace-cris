@@ -23,7 +23,6 @@ public class ItemController {
 	public ModelAndView showItem(@RequestParam String itemId, HttpServletRequest request) throws Exception {
 		Context context = UIUtil.obtainContext(request);
 		Item item = itemService.findByIdOrLegacyId(context, itemId);
-
 		return new ModelAndView("showItem", "command", item);
 	}
 	

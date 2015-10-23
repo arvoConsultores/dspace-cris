@@ -244,6 +244,7 @@ public abstract class DSpaceObjectServiceImpl<T extends DSpaceObject> implements
         {
 
             MetadataValue metadataValue = metadataValueService.create(context, dso, metadataField);
+            metadataValue.setPlace(i+1);
             metadataValue.setLanguage(lang == null ? null : lang.trim());
 
             // Logic to set Authority and Confidence:

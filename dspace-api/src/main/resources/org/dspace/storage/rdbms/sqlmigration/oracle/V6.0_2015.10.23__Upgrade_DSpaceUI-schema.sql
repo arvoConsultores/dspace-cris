@@ -30,7 +30,6 @@ alter table AUTHORITIES add constraint FK_2hiekwvkh63suypw2twy1begf foreign key 
 alter table AUTHORITIES add constraint FK_j8e6xh0qaf39qdnwbeg6poydx foreign key (FK_IDENTITY) references IDENTITY;
 alter table AUTHORITIES add constraint FK_aeawwv39ghkjg38ler3apuw8y foreign key (FK_RESOURCE) references RESOURCE_GA;
 alter table AUTHORITIES_INFO add constraint FK_17pbbksogqpfq6y8p272vyyvy foreign key (FK_AUTHORITIES) references AUTHORITIES;
-alter table AUTHORITIES_INFO add constraint FK_cyj5tvmo34rktn46hld4tw8x8 foreign key (FK_AUTHORITIES_INFO) references AUTHORITIES;
 alter table AUTHORITIES_INFO add constraint FK_cyj5tvmo34rktn46hld4tw8x8 foreign key (FK_AUTHORITIES_INFO) references AUTHORITIES_INFO;
 alter table CONFIGURATION_DATA add constraint FK_c2au3fg8hx9dsl9gp0vfvtdy foreign key (FK_CONFIGURATION) references CONFIGURATION;
 alter table CONFIGURATION_DATA add constraint FK_p3dd2j9o6k61ky2d53jpgsowh foreign key (FK_CONFIGURATION_VALUE) references CONFIGURATION;

@@ -1,7 +1,9 @@
 package org.dspace.app.webui.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -87,16 +89,21 @@ public class ItemFormController extends Spring3CoreFormControllerFragmentEnabled
 		// avrò l'elenco dei field presenti sulla pagina
 		// accedo alla mappa per quei field
 
+		Map<MetadataField, List<String>> finalMap = new HashMap<MetadataField, List<String>>();
 		for (String fieldString : item.getMetadataFieldPlaceMap().keySet()) {
 			String[] fieldArray = StringUtils.split(fieldString, "_");
 			MetadataField metadataField = metadataFieldService.findByElement(context, fieldArray[0], fieldArray[1],
-					fieldArray.length > 2 ? fieldArray[2] : null);
-			List<String> values = new ArrayList<String>();
-			for (String placeString : item.getMetadataFieldPlaceMap().get(fieldString).keySet())
-				values.add(item.getMetadataFieldPlaceMap().get(fieldString).get(placeString));
+					fieldArray.length > 3 ? fieldArray[2] : null);
+			if (!finalMap.containsKey(metadataField))
+				finalMap.put(metadataField, new ArrayList<String>());
+			if (StringUtils.isNotBlank(item.getMetadataFieldPlaceMap().get(fieldString)))
+				finalMap.get(metadataField).add(item.getMetadataFieldPlaceMap().get(fieldString));
+		}
+		for (MetadataField metadataField : finalMap.keySet()) {
 			itemService.clearMetadata(context, item, metadataField.getMetadataSchema().getName(),
 					metadataField.getElement(), metadataField.getQualifier(), Item.ANY);
-			itemService.addMetadata(context, item, metadataField, "it", values, null, null);
+			if (finalMap.get(metadataField).size() > 0)
+				itemService.addMetadata(context, item, metadataField, "it", finalMap.get(metadataField), null, null);
 		}
 		context.complete();
 

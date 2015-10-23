@@ -730,6 +730,8 @@ Common usage:
         <mkdir dir="${dspace.dir}/lib" />
 
         <mkdir dir="${dspace.dir}/etc" />
+    	<mkdir dir="${dspace.dir}/etc/postgres" />
+        <mkdir dir="${dspace.dir}/etc/oracle" />
 
         <mkdir dir="${dspace.dir}/webapps" />
 

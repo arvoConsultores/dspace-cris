@@ -40,8 +40,7 @@
 
 	</bean>
 
-	<bean id="dynamicMessageSource" class="it.cilea.core.i18n.conf.DatabaseReloadableMessageSource"
-		init-method="init">
+	<bean id="dynamicMessageSource" class="it.cilea.core.i18n.conf.DatabaseReloadableMessageSource">
 		<constructor-arg index="0" value="ir" />
 	</bean>
 

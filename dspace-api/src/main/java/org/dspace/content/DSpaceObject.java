@@ -30,7 +30,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 import org.dspace.authorize.ResourcePolicy;
-import org.dspace.comparator.PlaceStringComparator;
+import org.dspace.comparator.MetadataFieldPlaceMapComparator;
 import org.dspace.handle.Handle;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -214,25 +214,48 @@ public abstract class DSpaceObject implements Serializable {
 	}
 
 	@Transient
-	Map<String, Map<String, String>> metadataFieldPlaceMap = null;
+	Map<String, String> metadataFieldPlaceMap = null;
 
 	@Transient
-	public Map<String, Map<String, String>> getMetadataFieldPlaceMap() {
+	public Map<String, String> getMetadataFieldPlaceMap() {
 		if (metadataFieldPlaceMap != null)
 			return metadataFieldPlaceMap;
-		metadataFieldPlaceMap = new HashMap<String, Map<String, String>>();
+		metadataFieldPlaceMap = new TreeMap<String, String>(new MetadataFieldPlaceMapComparator());
 		for (MetadataValue metadataValue : this.getMetadata()) {
-			if (!metadataFieldPlaceMap.containsKey(metadataValue.getMetadataField().toString()))
-				metadataFieldPlaceMap.put(metadataValue.getMetadataField().toString(),
-						new TreeMap<String, String>(new PlaceStringComparator()));
-			metadataFieldPlaceMap.get(metadataValue.getMetadataField().toString()).put(metadataValue.getPlace() + "",
+			metadataFieldPlaceMap.put(metadataValue.getMetadataField().toString() + "_" + metadataValue.getPlace(),
 					metadataValue.getValue());
 		}
 		return metadataFieldPlaceMap;
 
 	}
 
-	public void setMetadataFieldPlaceMap(Map<String, Map<String, String>> metadataFieldPlaceMap) {
+	public void setMetadataFieldPlaceMap(Map<String, String> metadataFieldPlaceMap) {
 		this.metadataFieldPlaceMap = metadataFieldPlaceMap;
 	}
+
+	// @Transient
+	// Map<String, Map<String, String>> metadataFieldPlaceMap = null;
+	//
+	// @Transient
+	// public Map<String, Map<String, String>> getMetadataFieldPlaceMap() {
+	// if (metadataFieldPlaceMap != null)
+	// return metadataFieldPlaceMap;
+	// metadataFieldPlaceMap = new HashMap<String, Map<String, String>>();
+	// for (MetadataValue metadataValue : this.getMetadata()) {
+	// if
+	// (!metadataFieldPlaceMap.containsKey(metadataValue.getMetadataField().toString()))
+	// metadataFieldPlaceMap.put(metadataValue.getMetadataField().toString(),
+	// new TreeMap<String, String>(new PlaceStringComparator()));
+	// metadataFieldPlaceMap.get(metadataValue.getMetadataField().toString()).put("p"
+	// + metadataValue.getPlace(),
+	// metadataValue.getValue());
+	// }
+	// return metadataFieldPlaceMap;
+	//
+	// }
+	//
+	// public void setMetadataFieldPlaceMap(Map<String, Map<String, String>>
+	// metadataFieldPlaceMap) {
+	// this.metadataFieldPlaceMap = metadataFieldPlaceMap;
+	// }
 }

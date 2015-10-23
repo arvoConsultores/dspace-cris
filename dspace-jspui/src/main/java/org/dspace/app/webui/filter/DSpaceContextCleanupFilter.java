@@ -25,8 +25,7 @@ import org.dspace.core.Context;
 import org.dspace.core.LogManager;
 
 /**
- * Filter to ensure the correct closing of DSpace Context when used by the RP
- * module
+ * Filter to ensure the correct closing of DSpace Context when used by spring-mvc module
  * 
  * @author l.pascarelli
  * 

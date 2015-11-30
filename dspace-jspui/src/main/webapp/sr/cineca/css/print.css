@@ -1,0 +1,38 @@
+html, body {
+	overflow:	visible 	!important;
+	width:		auto		!important;
+	height:		auto		!important;
+}
+.ui-layout-pane ,
+.ui-layout-resizer ,
+.ui-layout-toggler {
+	display:	none		!important;
+	position:	relative	!important;
+	top:		auto		!important;
+	bottom:		auto		!important;
+	left:		auto		!important;
+	right:		auto		!important;
+	width:		auto		!important;
+	height:		auto		!important;
+	overflow:	visible		!important;
+}
+.menuTopContainer, .north-icon-div { display: none		!important;}
+.ui-layout-pane-north { display:	block		!important; }
+.ui-layout-pane-center { display:	block		!important; }
+.breadCrumbsLand { display:	none		!important; }
+
+body { font: 9px "Trebuchet MS", sans-serif; margin: 0px; }
+a { text-decoration: none; }
+a:HOVER { text-decoration: underline; }
+a:visited { text-decoration: none; }
+h1 { margin-bottom: 5px; color: #404040; font-weight: normal; font-size: 13px; }
+h2 { color: #505050; font-weight: bold; font-size: 12px; margin-bottom: 10px; margin-top: 10px; }
+h3 { color: #606060; font-weight: bold; text-indent: 10px; font-size: 11px; margin-bottom: 5px; margin-top: 5px; }
+fieldset { border: solid 1px rgb(220, 220, 220); margin-top: 10px; margin-bottom: 10px; padding-bottom: 10px; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; }
+fieldset legend { color: rgb(80, 80, 80); font-weight: bold; font-size: 10px; margin-left: 5px; padding: 0 2px 0 2px; }
+fieldset fieldset { margin: 5px; }
+.searchFieldset { border: solid 0px rgb(220, 220, 220); margin-top: 10px; margin-bottom: 10px; padding-bottom: 10px; border-radius: 25px; box-shadow: none;}
+fieldset.searchFieldset h2 { color: #505050; font-weight: bold; font-size: 10px; margin-bottom: 10px; margin-top: 10px; margin-left: 25px; box-shadow: none;}
+.jtable { font-size: 9px; }
+
+.ui-helper-clearfix:before, .ui-helper-clearfix:after { display: inherit; }

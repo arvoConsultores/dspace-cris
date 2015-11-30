@@ -1,5 +1,10 @@
 <decorators defaultdir="/decorator">
 	
+<!-- 	
+	<decorator name="itemFormDefault" page="itemFormDefault.jsp">
+		<pattern>/item/form.htm</pattern>
+	</decorator>
+	 -->
 	<decorator name="default" page="default.jsp">
 		<pattern>*.htm</pattern>
 	</decorator>

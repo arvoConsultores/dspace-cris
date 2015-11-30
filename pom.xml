@@ -46,7 +46,9 @@
         <spring.security.version>3.2.8.RELEASE</spring.security.version>
         <displaytag.version>1.2-modified-for-POI-36</displaytag.version>
         <javax.validation.version>1.0.0.GA</javax.validation.version>
-        <framework-version>15.10.4.0-SNAPSHOT</framework-version>
+        <framework-version>15.12.1.0-SNAPSHOT</framework-version>
+		<rhino.version>1.7R1</rhino.version>
+		<org.eclipse.persistence.version>2.5.0</org.eclipse.persistence.version>
         <!-- 'root.basedir' is the path to the root [dspace-src] dir. It must be redefined by each child POM,
              as it is used to reference the LICENSE_HEADER and *.properties file(s) in that directory. -->
         <root.basedir>${basedir}</root.basedir>
@@ -1363,6 +1365,11 @@
 			<version>${framework-version}</version>
 		</dependency>
 		<dependency>
+			<groupId>rhino</groupId>
+			<artifactId>js</artifactId>
+			<version>${rhino.version}</version>
+		</dependency>
+		<dependency>
 			<groupId>it.cineca.surplus.framework</groupId>
 			<artifactId>widget</artifactId>
 			<version>${framework-version}</version>
@@ -1414,6 +1421,11 @@
 				<groupId>org.hibernate</groupId>
 				<artifactId>hibernate-validator</artifactId>
 				<version>${org.hibernate.validator.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.eclipse.persistence</groupId>
+				<artifactId>eclipselink</artifactId>
+				<version>${org.eclipse.persistence.version}</version>
 			</dependency>
 			
       </dependencies>

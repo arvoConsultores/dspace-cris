@@ -712,6 +712,10 @@
 			<artifactId>widget</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>rhino</groupId>
+			<artifactId>js</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>it.cineca.surplus.framework</groupId>
 			<artifactId>view</artifactId>
 		</dependency>
@@ -727,6 +731,10 @@
             <artifactId>spring-webmvc</artifactId>
             <groupId>org.springframework</groupId>
         </dependency>
+		<dependency>
+			<groupId>org.eclipse.persistence</groupId>
+			<artifactId>eclipselink</artifactId>
+		</dependency>
 	</dependencies>
 
 </project>

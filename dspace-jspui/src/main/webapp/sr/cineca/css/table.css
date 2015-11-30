@@ -1,0 +1,91 @@
+
+.table input.button {float:right; padding:0px 5px 0px 5px; background:rgb(220,220,220);
+	border:solid 1px rgb(80,80,80);	text-align:center; color:rgb(80,80,80); width: 60px;
+	margin:0 0 0 20px;}
+.table input.button:hover {background:rgb(230,230,230);cursor: pointer;}
+
+
+.table th a{color: white;}
+.table th.sorted a, .table th.sortable a {background-position: right; display: block;}
+.table th.order1 a {background-image: url(../images/icon/arrow_down.png) !important;}
+.table th.order2 a {background-image: url(../images/icon/arrow_up.png) !important;}
+.table th.sortable a {background-image: url(../images/icon/arrow_off.png);}
+.table th.sorted {background-color: #c0c0c0;color: #fff;}
+.table th.sorted a, .table th.sortable a {background-position: right;
+	background-repeat: no-repeat; display: block;}
+
+.table tr.even {background: #eee; border-top: 1px solid #c0c0c0; color: #000000;}
+.table tr.odd { background: #fff; border-top: 1px solid #c0c0c0; color: #000000;}
+.table tr.over { border-bottom: 1px solid #C0C0C0; border-top: 1px solid #C0C0C0;
+	color: #000000; cursor: pointer;}
+
+.table { font-size: 10px; margin: 5px 0 5px 0; padding: 0; border-collapse:collapse;
+	color: #000; background: #fff; width: 99%;}
+.table caption { font-weight: bold; margin: 0 0 0 0; padding: 0 0.6em 0.8em; text-align: left;
+	background: transparent;}
+.table th { font-weight: bold; text-align: left; color: white;}
+.table td { font-size: 10px;}
+.table th table, .table th table td { width: 100%; border: 0px; }
+.table td, .table th { border: 1px solid #e0e0e0; padding: 0.5em;}
+.table thead th { border: 1px solid #e0e0e0; text-align: left; font-size: 10px; font-weight: bold;}
+.table tfoot th, .table tfoot td { border: 1px solid #e0e0e0; text-align: left; font-size: 12px;}
+.table tfoot th { font-weight: bold;}
+.table tbody td a { background: transparent; text-decoration: none;}
+.table tbody td a:hover { background: transparent; text-decoration: underline;}
+.table tbody th a { background: transparent; text-decoration: none; font-weight: bold;}
+.table tbody th, .table tbody td { text-align: left;}
+.table tfoot td { border: 1px solid #996; }
+.table tbody tr:hover, .table tr.over { background: #ffffd9 !important; /* important needed for Tapestry, as is .table tr:hover */
+}
+
+.table {border: 1px solid #828282;}
+.table thead th {border: 1px solid #828282;background: #0a6b0a}
+.table tfoot th, .table tfoot td {background: #CCCCCC;}
+
+
+
+div.displayTagNumberElements {font-size: 10px; color: #505050; margin-top:5px; width:50%; min-width: 230px; float:left; clear: right;}
+div.displayTagNumberElement {font-size: 10px; color: #505050; margin-top:5px; width:100%; margin-bottom: 5px; clear: both;}
+div.pageLinksDiv {font-size: 10px; color: #505050; margin-bottom:5px; margin-top:5px; width:50%; min-width: 300px; float:right; text-align: right; clear: right;}
+span.pagelinks {}
+span.pagelinks a {color: #505050; cursor: pointer; }
+
+div.exportlinks {font-size: 10px;}
+div.exportlinks a {text-decoration: none;}
+div.exportlinks span {background-repeat: no-repeat;}
+
+span.csv {background-image: url(../images/displaytag/ico_file_csv.png);}
+span.tab {background-image: url(../images/displaytag/ico_file_csv.png);}
+span.excel {background-image: url(../images/displaytag/ico_file_excel.png);}
+span.pdf {background-image: url(../images/displaytag/ico_file_pdf.png);}
+span.xml {background-image: url(../images/displaytag/ico_file_xml.png);}
+span.rtf {background-image: url(../images/displaytag/ico_file_doc.jpg);}
+span.export {cursor: pointer; display: inline; padding: 0 4px 1px 20px;}
+span.pagebanner {display: block; margin: 10px 0px 10px 0px; padding: 2px 4px 2px 0px;font-size: 10px;}
+
+.jtable td{padding: 2px;}
+.jtable th{padding: 2px; text-align: left;}
+
+.jtable th.sorted a, .jtable th.sortable a {background-position: right; display: block;}
+.jtable th.order1 a {background-image: url(../images/displaytag/arrow_down.png) !important;}
+.jtable th.order2 a {background-image: url(../images/displaytag/arrow_up.png) !important;}
+.jtable th.sortable a {background-image: url(../images/displaytag/arrow_off.png);}
+.jtable th.sorted {background-color: #c0c0c0;color: #fff;}
+.jtable th.sorted a, .jtable th.sortable a {background-position: right;
+	background-repeat: no-repeat; display: block;}
+
+.jtable .full { width: 100%; }
+.jtable .half { width: 50%; }
+.jtable .quarter { width: 25%; }
+.jtable .third { width: 33%; }
+.jtable .date { width: 120px; }
+.jtable .number { width: 120px; }
+
+.jtable {width: 100%; clear: both;}
+
+.documentDetail {background-image: url(../images/icon/24x24/document_view.png); background-position: 0 0;}
+.documentEdit {background-image: url(../images/icon/24x24/document_edit.png); background-position: 0 0;}
+
+.olapTable {width: 90%;}
+.olapTable td{padding: 2px;}
+.olapTable th{padding: 2px; text-align: left;}

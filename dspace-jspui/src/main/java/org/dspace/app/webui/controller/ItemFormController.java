@@ -106,6 +106,7 @@ public class ItemFormController extends Spring3CoreFormControllerFragmentEnabled
 				itemService.addMetadata(context, item, metadataField, "it", finalMap.get(metadataField), null, null);
 		}
 		context.complete();
+		saveMessage(request, messageUtil.findMessage("action.item.updated"));
 
 		// gaService.saveOrUpdateWithFragment(item,
 		// FragmentUtil.extractFragmentInfoMaps(request), gaService);

@@ -1,0 +1,21 @@
+#modal-charts {
+ top:0px;
+ left:50%;
+ overflow: visible;
+ outline: none;
+ height:500px;
+ width:600px;
+}
+#modal-charts .modal-dialog, #modal-charts .modal-dialog .modal-content {
+ height:500px;
+ width:600px;
+ margin: 0;
+ overflow: visible;
+}
+#modal-charts .modal-body{
+ height:400px;
+ width:600px; 
+} 
+#rawData {
+ overflow: auto;
+}

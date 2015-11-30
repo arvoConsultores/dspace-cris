@@ -1,0 +1,186 @@
+/* breadcrumbs */
+.breadCrumbsLand { font-size: 10px; height: 25px; margin: 4px; }
+.breadCrumbsLand ul { list-style: none; padding: 0; }
+.breadCrumbsLand ul li { display: inline; color: rgb(125, 125, 125); padding-left: 8px; margin-left: 8px; background: transparent url(..//images/icon/bg_bullet_arrow.gif) no-repeat 0 50%; }
+.breadCrumbsLand ul a { text-decoration: none; }
+.breadCrumbsLand ul a:HOVER { text-decoration: underline; }
+
+/* all */
+body { font: 62.5% "Trebuchet MS", sans-serif; margin: 0px; color:#222222;}
+
+a { text-decoration: none; }
+a:HOVER { text-decoration: underline; }
+a:visited { text-decoration: none; }
+h1 { margin-bottom: 5px; color: #404040; font-weight: normal; font-size: 20px; clear: both; }
+h2 { color: #505050; font-weight: bold; font-size: 16px; margin-bottom: 10px; margin-top: 10px; }
+h3 { color: #606060; font-weight: bold; text-indent: 10px; font-size: 14px; margin-bottom: 5px; margin-top: 5px; }
+fieldset { border: solid 1px rgb(220, 220, 220); margin-top: 10px; margin-bottom: 10px; padding-bottom: 10px; border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px; }
+fieldset legend { color: rgb(80, 80, 80); font-weight: bold; font-size: 12px; margin-left: 5px; padding: 0 2px 0 2px; }
+fieldset fieldset { margin: 5px; }
+.searchFieldset { border: solid 0px rgb(220, 220, 220); margin-top: 10px; margin-bottom: 10px; padding-bottom: 10px; box-shadow: 5px 5px 10px #000; -webkit-box-shadow: 5px 5px 10px #000; -moz-box-shadow: 5px 5px 10px #000000; border-radius: 25px; -moz-border-radius: 25px; -webkit-border-radius: 25px; }
+fieldset.searchFieldset h2 { color: #505050; font-weight: bold; font-size: 16px; margin-bottom: 10px; margin-top: 10px; margin-left: 25px; }
+
+/* mbMenu override */
+.menu { display: none; }
+.rootVoices { border: 0px; border-collapse: separate; border-spacing: 1px 0px; padding: 0px; }
+.rootVoices .container { border: 0; padding: 0px; border-spacing: 0px; }
+.rootVoices td.rootVoice { font-size: 14px; line-height: 12px; -moz-border-radius: 8px 8px 0 0px; -webkit-border-top-right-radius: 8px; -webkit-border-top-left-radius: 8px; -webkit-border-bottom-right-radius: 0px; -webkit-border-bottom-left-radius: 0px; border-radius: 8px 8px 0 0px; border-top-right-radius: 8px; border-top-left-radius: 8px; border-bottom-right-radius: 0px; border-bottom-left-radius: 0px; text-shadow: none; min-width: 60px; }
+.rootVoices td.rootVoice.selected { text-shadow: none; }
+
+/* ui-layout override*/
+.ui-layout-resizer-open { background: #fff; }
+.ui-layout-pane { background: #FFF; border: 0px; padding: 0px; overflow: auto; }
+.ui-layout-content {padding:	10px;}
+
+
+
+/* sxMenu */
+.sxMenu li, .sxMenu ul { list-style: none; font-size: 12px; margin: 0px; padding: 0px; text-decoration: none; }
+#closeWest { width: 20px; right: 10px; top: 5px; position: absolute; padding: 3px; }
+#closeEast { width: 20px; left: 10px; top: 5px; position: absolute; padding: 3px; }
+
+/* timepicker */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; }
+.ui-timepicker-div dl dd { margin: -25px 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+
+.ui-autocomplete { max-height: 200px; overflow-y: auto; /* prevent horizontal scrollbar */ overflow-x: hidden; }
+/* IE 6 doesn't support max-height we use height instead, but this forces the menu to always be this tall */
+* html .ui-autocomplete {height: 200px;}
+
+/* jstree override */
+.jstree-classic.jstree-focused { background: transparent; }
+
+/* form */
+/* deprecated! use .line */
+.column1 { max-width: 1280px; }
+.linea { clear: both; padding-top: 2px; padding-bottom: 2px; margin-top: 2px; }
+.linea .testoSx { width: 15%; float: left; margin-left: 10px; min-width: 80px;}
+.linea .testoUnico { margin-left: 10px; }
+.linea .testoDx { margin-left: 17%; }
+.linea .required { color: red; }
+.linea textarea { width: 90%; height: 100px; }
+.linea input { width: 90%; margin: 0px; }
+.linea select { width: 90%; margin: 0px; }
+.linea .full { width: 100%; }
+.linea .half { width: 50%; }
+.linea .quarter { width: 25%; }
+.linea .third { width: 33%; }
+.linea .date { width: 120px; }
+.linea .number { width: 120px; }
+.linea .inputReadOnly { border-bottom: dashed #c0c0c0 1px; background-color: transparent; border: solid transparent 1px; }
+.linea .disabled { background: transparent; border: 0px; cursor: default; }
+.linea .radioButton { width: 25px; }
+.linea .errore { font-size: 12px; margin-left: 30%; vertical-align: top; color: red; background-color: #FDFF72; width: 50%; border: 1px solid red; padding: 5px 5px 5px 5px; margin-top: 5px; margin-bottom: 5px; background: #FDFF72; }
+.linea .errore .imgArrow { margin-top: -10px; position: absolute; }
+.linea .erroreIntero { font-size: 12px; vertical-align: top; color: red; background-color: #FDFF72; width: 90%; border: 1px solid red; padding: 5px 5px 5px 5px; margin-top: 5px; margin-bottom: 5px; background: #FDFF72; }
+.linea .erroreIntero .imgArrow { margin-top: -10px; position: absolute; }
+.linea .info { font-size: 12px; margin-left: 20%; vertical-align: top; color: #404040; background: #FFE1C8; width: 70%; border: 1px solid #E16600; padding: 5px 5px 5px 5px; margin-top: 5px; margin-bottom: 5px; }
+.linea .info .imgArrow { margin-top: -10px; position: absolute; }
+.linea .infoIntero { font-size: 12px; vertical-align: top; color: #404040; width: 90%; border: 1px solid #E16600; padding: 5px 5px 5px 5px; margin-top: 5px; margin-bottom: 5px; background: #FFE1C8; margin-left: 30px; }
+.linea .infoIntero .imgArrow { margin-top: -10px; position: absolute; }
+.lineaButton { clear: none; padding-top: 2px; padding-bottom: 2px; margin-left: 17%; }
+.errorMessages, .successMessages { background-color: #FDFF72; border: 1px solid #000; color: #000000; font-weight: normal; margin: 10px 10px 10px 10px; padding: 5px; text-align: left; vertical-align: bottom; }
+.errorMessages { border: 2px solid red; }
+.searchFieldset .testoSx { width: 15%; float: left; margin-left: 30px; min-width: 80px;}
+.imgIcon { border: 0; }
+.imgIconTransparent:HOVER { cursor: pointer; }
+.errorDiv { margin-left: 22%; vertical-align: top; width: 70%; margin-top: 5px; margin-bottom: 5px; }
+.errorFullDiv { margin-left: 5%; vertical-align: top; width: 90%; margin-top: 5px; margin-bottom: 5px; }
+.infoDiv { margin-left: 22%; vertical-align: top; width: 70%; margin-top: 5px; margin-bottom: 5px; }
+.infoFullDiv { margin-left: 5%; vertical-align: top; width: 90%; margin-top: 5px; margin-bottom: 5px; }
+.lineaButton .infoFullDiv { margin-left: 0; }
+
+/* table */
+.exportlinks a { color: #505050; }
+
+/* ? */
+.ui-widget-header { line-height: 25px; }
+
+.max1024 {max-width: 1024px;}
+
+.display-none {display: none;}
+.desktop-column {width: 45%; float: left; clear: none; margin-left: 10px;}
+.desktop-item {width: 100%; margin:5px;}
+.desktop-item-iframe {width: 100%; border: 0px; }
+.desktop-item-buttonset {float: right; clear: both;}
+
+
+.assessmentUserDiv .linea {font-size: 12px; clear: both;}
+.assessmentUserDiv .linea .testoSx {width: 100%; clear: both; margin-left: 10px; font-weight: bold; color: black; margin-top: 5px; margin-bottom: 5px;}
+.assessmentUserDiv .linea .testoDx {width: 90%; margin-left: 30px; clear: both; color: black; line-height: 20px;}
+.assessmentUserDiv .linea .radioButton {width: 25px; margin-top: 10px; display: inline; margin-left: 10px;}
+.assessmentUserDiv .linea .radioButton_verticale {width: 100%; margin-top: 10px; }
+.assessmentUserDiv .linea .radioButton_orizzontale {margin-top: 10px; float: left; display: inline;}
+.assessmentUserDiv .linea .deselectSpan {padding-top: 10px;  display: block;}
+.assessmentUserDiv .linea select {width:90%}
+.assessmentUserDiv .linea .infoDescrizione {font-size: 12px; width: 90%; clear: both; margin-left: 30px; padding-top: 10px; padding-bottom: 10px; color: black;}
+.assessmentUserDiv .sezioneSotto {margin-left: 50px;}
+.assessmentUserDiv hr {color: #fff; background-color: #fff;}
+
+.north-icon-span {margin-right: 10px;}
+
+.linea .testoDx .ui-datepicker-trigger {width:18px; vertical-align: bottom;}
+
+.commandFormButtonsDiv {margin-top: 5px; display: inline-block; margin-right: 20px;}
+
+
+
+.line .required-icon { background-image: url(..//images/icon/required.png); display: inline-block; width: 10px; height: 12px; background-repeat: no-repeat; }
+.line input { width: 90%; margin: 0px;}
+.line textarea { width: 90%; height: 100px; }
+.line select { width: 90%; margin: 0px; }
+.line .full { width: 98%; }
+.line .half { width: 50%; }
+.line .quarter { width: 25%; }
+.line .third { width: 33%; }
+.line .date { width: 120px; }
+.line .number { width: 120px; }
+.line .readonly { border-bottom: dashed #c0c0c0 1px; background-color: transparent; border: solid transparent 1px; }
+.line .disabled { background: transparent; border: 0px; cursor: default; }
+.line .radio, .line .checkbox {width: 13px; margin-right: 5px;}
+.line .radio-horizontal, .line .checkbox-horizontal { display: inline; margin-right: 10px; } 
+.line .radio-vertical, .line .checkbox-vertical { width: 100%; }
+.line .ui-datepicker-trigger {width:18px; vertical-align: bottom;}
+/*.line .deselectSpan {padding-top: 10px;  display: block;}*/
+.display-inline-block { display: inline-block;}
+.line .counter { margin: 0px; padding: 0px 0px 0px 10px; color: gray; font-size: x-small; }
+
+.line-content-error div, .line-content-info div { padding: 0 .7em; }
+.line-content-error div p, .line-content-info div p { margin: 6px 0px; }
+.info-line .line-content-info div p, .error-line .line-content-error div p { margin: 11px 0px; }
+.line-content-error div p .ui-icon-alert, .line-content-info div p .ui-icon-info, .line-content-info div p .ui-icon-notice { margin-right: .3em; float: left; }
+
+.searchFieldset { max-width: 1024px; }
+
+.form-two-columns { max-width: 1024px; }
+.line { clear: both; padding-top: 2px; padding-bottom: 2px; margin-top: 2px; border-radius: 4px; }
+.info-line, .error-line { clear: both; padding-top: 2px; padding-bottom: 2px; margin-top: 2px; border-radius: 4px; }
+.button-line, .form-two-columns .button-line { clear: none; padding-top: 2px; padding-bottom: 2px; margin-left: 17%; }
+/* define the standard (form-two-columns) when no "form* is specified */
+.line .line-label, .form-two-columns .line .line-label { width: 15%; float: left; margin-left: 10px; min-width: 80px;}
+.line .line-content, .form-two-columns .line .line-content { margin-left: 17%;  margin-bottom: 3px; line-height: 20px; margin-right: 10px; }
+.info-line .line-content, .form-two-columns .info-line .line-content, .error-line .line-content, .form-two-columns .error-line .line-content { margin-left: 10px; margin-bottom: 3px; margin-right: 10px; }
+
+.form-one-column { max-width: 1024px; }
+.form-one-column .line .line-label {width: 100%; clear: both; margin-left: 10px; font-weight: bold; color: black; margin-top: 5px; margin-bottom: 5px;}
+.form-one-column .line .line-content { margin-left: 10px; clear: both; color: black; line-height: 20px; margin-bottom: 3px; line-height: 25px; margin-right: 10px; }
+.form-one-column .button-line { clear: none; padding-top: 2px; padding-bottom: 2px; margin-left: 10px; }
+.form-one-column .info-line .line-content, .form-one-column .error-line .line-content { margin-left: 10px; margin-bottom: 3px; margin-right: 10px; }
+
+.form-one-column-tabbed { max-width: 1024px; }
+.form-one-column-tabbed .line {font-size: 12px; clear: both;}
+.form-one-column-tabbed .line .line-label {width: 100%; clear: both; margin-left: 10px; font-weight: bold; color: black; margin-top: 5px; margin-bottom: 5px;}
+.form-one-column-tabbed .line .line-content { margin-left: 30px; clear: both; color: black; line-height: 20px; margin-bottom: 3px; line-height: 25px; margin-right: 30px; }
+.form-one-column-tabbed .info-line .line-content, .form-one-column-tabbed .error-line .line-content { margin-left: 10px; margin-bottom: 3px; margin-right: 10px; }
+.form-one-column-tabbed .button-line { clear: none; padding-top: 2px; padding-bottom: 2px; margin-left: 10px; }
+.form-one-column-tabbed hr {color: #fff; background-color: #fff;}
+
+#rememberToSaveMessage {position: fixed; bottom: 35px; margin-left: 25px; margin-right: 5px; width: 45%; display: none;}
+#rememberToSaveMessage .info-line .line-content-info div p { margin: 30px 0px; font-weight: bold;}
+
+.ui-layout-center #tabs {overflow: hidden; overflow-y: auto; overflow-x: hidden;}
+
+.ui-autocomplete-loading { background:url('..//images/icon/loading_indicator.gif') no-repeat center center; }

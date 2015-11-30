@@ -28,4 +28,10 @@
 			<input type="submit" value="<fmt:message key="button.save"/>" class="btn btn-primary"/>
 		</div>
 	</form:form>
+<script type="text/javascript">
+function removeWidgetMultiple(inputId) {
+	$('#'+inputId).val('');
+	$('#'+inputId+'_line').hide();
+}
+</script>
 </div>

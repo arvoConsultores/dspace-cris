@@ -64,6 +64,7 @@
 	<bean id="viewStartupListenerWorker" class="it.cilea.core.view.listener.ViewStartupListenerWorker" />
 	<bean id="searchStartupListenerWorker" class="it.cilea.core.search.listener.SearchStartupListenerWorker" />
 	<bean id="widgetStartupListenerWorker" class="it.cilea.core.widget.listener.WidgetStartupListenerWorker" />
+	<bean id="treeNodeStartupListenerWorker" class="it.cilea.core.menu.listener.TreeNodeStartupListenerWorker" />
 	
 	
  	<bean id="searchBuilderTemplate" factory-bean="surplus" factory-method="getSearchBuilderTemplate" />

@@ -26,7 +26,6 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import it.cilea.core.dto.MultipleChoice;
@@ -35,24 +34,6 @@ import it.cilea.core.spring.controller.Spring3CoreController;
 @Controller
 @RequestMapping("/item")
 public class ItemFormController extends Spring3CoreController {
-
-	@Autowired
-	private CollectionService collectionService;
-	@Autowired
-	private WorkspaceItemService workspaceItemService;
-	@Autowired
-	private ItemService itemService;
-	@Autowired
-	private MetadataFieldService metadataFieldService;
-
-	@RequestMapping("/new")
-	public ModelAndView newItem(@RequestParam String collectionId, HttpServletRequest request) throws Exception {
-		Context context = UIUtil.obtainContext(request);
-		Collection collection = collectionService.findByIdOrLegacyId(context, collectionId);
-		WorkspaceItem wsi = workspaceItemService.create(context, collection, false);
-		Item item = wsi.getItem();
-		return new ModelAndView("showItem", "command", item);
-	}
 
 	@ModelAttribute("command")
 	public Item formBacking(HttpServletRequest request) throws Exception {
@@ -69,7 +50,7 @@ public class ItemFormController extends Spring3CoreController {
 		// return new
 		// ModelAndView(getControllerLogic(request.getServletPath()).getViewName(),
 		// "command", item);
-		return new ModelAndView("/editItem", "command", item);
+		return new ModelAndView("/item/form", "command", item);
 	}
 
 	@RequestMapping(value = { "**/form", "/form", "**/new", "/new" }, method = RequestMethod.POST)
@@ -140,19 +121,28 @@ public class ItemFormController extends Spring3CoreController {
 		}
 	}
 
+	@Autowired
+	private CollectionService collectionService;
+	@Autowired
+	private WorkspaceItemService workspaceItemService;
+	@Autowired
+	private ItemService itemService;
+	@Autowired
+	private MetadataFieldService metadataFieldService;
+
 	public void setItemService(ItemService itemService) {
 		this.itemService = itemService;
 	}
 
-	// @InitBinder
-	// public void initBinder(WebDataBinder binder) {
-	// DSpace dspace = context.getBean(DSpace.class);
-	// MetadataFieldService metadataFieldService =
-	// dspace.getSingletonService(MetadataFieldService.class);
-	// binder.registerCustomEditor(MetadataField.class, new
-	// CustomMetadataFieldEditor(metadataFieldService));
-	// }
 	public void setMetadataFieldService(MetadataFieldService metadataFieldService) {
 		this.metadataFieldService = metadataFieldService;
+	}
+
+	public void setCollectionService(CollectionService collectionService) {
+		this.collectionService = collectionService;
+	}
+
+	public void setWorkspaceItemService(WorkspaceItemService workspaceItemService) {
+		this.workspaceItemService = workspaceItemService;
 	}
 }

@@ -1,9 +1,11 @@
 package it.cineca.surplus.ir.context;
 
 import org.dspace.content.service.CollectionService;
+import org.dspace.content.service.CommunityService;
 import org.dspace.content.service.ItemService;
 import org.dspace.content.service.MetadataFieldService;
 import org.dspace.content.service.WorkspaceItemService;
+import org.dspace.handle.service.HandleService;
 import org.dspace.utils.DSpace;
 
 import it.cilea.core.authorization.service.AuthorizationService;
@@ -105,6 +107,14 @@ public class Surplus {
 
 	public WorkspaceItemService getWorkspaceItemService() {
 		return dspace.getServiceManager().getServiceByName("workspaceItemService", WorkspaceItemService.class);
+	}
+
+	public CommunityService getCommunityService() {
+		return dspace.getServiceManager().getServiceByName("communityService", CommunityService.class);
+	}
+
+	public HandleService getHandleService() {
+		return dspace.getServiceManager().getServiceByName("handleService", HandleService.class);
 	}
 
 	public ItemService getItemService() {

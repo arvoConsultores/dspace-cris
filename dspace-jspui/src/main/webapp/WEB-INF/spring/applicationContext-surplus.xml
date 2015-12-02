@@ -62,6 +62,8 @@
 	
  	<bean id="searchBuilderTemplate" factory-bean="surplus" factory-method="getSearchBuilderTemplate" />
  	<bean id="collectionService" factory-bean="surplus" factory-method="getCollectionService" />
+ 	<bean id="communityService" factory-bean="surplus" factory-method="getCommunityService" />
+ 	<bean id="handleService" factory-bean="surplus" factory-method="getHandleService" />
  	<bean id="workspaceItemService" factory-bean="surplus" factory-method="getWorkspaceItemService" />
  	<bean id="itemService" factory-bean="surplus" factory-method="getItemService" />
  	<bean id="metadataFieldService" factory-bean="surplus" factory-method="getMetadataFieldService" />

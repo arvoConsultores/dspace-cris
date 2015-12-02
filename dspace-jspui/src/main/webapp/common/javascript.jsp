@@ -58,7 +58,7 @@
 			$('.overlay').fadeIn(150);
 			$.each(menuReloadModuleMap, function(module, value) { 
 				$.ajax({
-					url: ((module.substring(0, 1) == "/") ? "" : "/") +module+"/manager/menu/reload.fragment",
+					url: ((module.substring(0, 1) == "/") ? "" : "/") +module+"/menu/reload.fragment",
 					dataType: "text",		
 					contentType: "application/x-www-form-urlencoded;charset=UTF-8",													
 					data: {

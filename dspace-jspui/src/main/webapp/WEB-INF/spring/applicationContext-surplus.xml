@@ -33,7 +33,6 @@
 	<bean id="hibernateSearchStrategy" factory-bean="surplus" factory-method="getHibernateSearchStrategy" />
 	
 	<bean id="controllerLogicFactory" factory-bean="surplus" factory-method="getControllerLogicFactory" />
-	<bean id="fragmentControllerLogicFactory" factory-bean="surplus" factory-method="getFragmentControllerLogicFactory" />
 	
 	
 	<bean id="dynamicMessageSource" factory-bean="surplus" factory-method="getDatabaseReloadableMessageSource" />

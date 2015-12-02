@@ -8,7 +8,6 @@ import org.dspace.utils.DSpace;
 
 import it.cilea.core.authorization.service.AuthorizationService;
 import it.cilea.core.configuration.service.ConfigurationService;
-import it.cilea.core.fragment.factory.FragmentControllerLogicFactory;
 import it.cilea.core.i18n.conf.CileaMessageSource;
 import it.cilea.core.i18n.conf.DatabaseReloadableMessageSource;
 import it.cilea.core.i18n.conf.StaticMessageSource;
@@ -88,12 +87,6 @@ public class Surplus {
 		ControllerLogicFactory controllerLogicFactory = dspace.getServiceManager()
 				.getServiceByName("controllerLogicFactory", ControllerLogicFactory.class);
 		return controllerLogicFactory;
-	}
-
-	public FragmentControllerLogicFactory getFragmentControllerLogicFactory() {
-		FragmentControllerLogicFactory fragmentControllerLogicFactory = dspace.getServiceManager()
-				.getServiceByName("fragmentControllerLogicFactory", FragmentControllerLogicFactory.class);
-		return fragmentControllerLogicFactory;
 	}
 
 	public AuthorizationService getAuthorizationService() {

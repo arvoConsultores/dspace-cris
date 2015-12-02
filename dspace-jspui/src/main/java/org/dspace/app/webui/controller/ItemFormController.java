@@ -30,11 +30,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import it.cilea.core.dto.MultipleChoice;
-import it.cilea.core.fragment.controller.Spring3CoreFormControllerFragmentEnabled;
+import it.cilea.core.spring.controller.Spring3CoreController;
 
 @Controller
 @RequestMapping("/item")
-public class ItemFormController extends Spring3CoreFormControllerFragmentEnabled {
+public class ItemFormController extends Spring3CoreController {
 
 	@Autowired
 	private CollectionService collectionService;

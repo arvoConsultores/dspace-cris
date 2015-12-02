@@ -70,7 +70,6 @@
 	</bean>
 	
 	<bean id="controllerLogicFactory" class="it.cilea.core.spring.factory.impl.ControllerLogicFactoryDefaultImpl"/>
-	<bean id="fragmentControllerLogicFactory" class="it.cilea.core.fragment.factory.impl.FragmentControllerLogicFactoryDefaultImpl"/>
 	
 
 </beans>

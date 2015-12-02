@@ -1345,22 +1345,22 @@
 			<version>${spring.security.version}</version>
 		</dependency>
         <dependency>
-			<groupId>it.cineca.surplus.framework</groupId>
+			<groupId>it.cineca.dspace.framework</groupId>
 			<artifactId>authorization</artifactId>
 			<version>${framework-version}</version>
 		</dependency>
 		<dependency>
-			<groupId>it.cineca.surplus.framework</groupId>
+			<groupId>it.cineca.dspace.framework</groupId>
 			<artifactId>configuration</artifactId>
 			<version>${framework-version}</version>
 		</dependency>
 		<dependency>
-			<groupId>it.cineca.surplus.framework</groupId>
+			<groupId>it.cineca.dspace.framework</groupId>
 			<artifactId>i18n</artifactId>
 			<version>${framework-version}</version>
 		</dependency>
 		<dependency>
-			<groupId>it.cineca.surplus.framework</groupId>
+			<groupId>it.cineca.dspace.framework</groupId>
 			<artifactId>menu</artifactId>
 			<version>${framework-version}</version>
 		</dependency>
@@ -1370,17 +1370,17 @@
 			<version>${rhino.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>it.cineca.surplus.framework</groupId>
+			<groupId>it.cineca.dspace.framework</groupId>
 			<artifactId>widget</artifactId>
 			<version>${framework-version}</version>
 		</dependency>
 		<dependency>
-			<groupId>it.cineca.surplus.framework</groupId>
+			<groupId>it.cineca.dspace.framework</groupId>
 			<artifactId>search</artifactId>
 			<version>${framework-version}</version>
 		</dependency>
 		<dependency>
-			<groupId>it.cineca.surplus.framework</groupId>
+			<groupId>it.cineca.dspace.framework</groupId>
 			<artifactId>view</artifactId>
 			<version>${framework-version}</version>
 		</dependency>	

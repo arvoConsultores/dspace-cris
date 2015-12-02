@@ -688,11 +688,11 @@
 			<type>jar</type>
 		</dependency>
 		<dependency>
-			<groupId>it.cineca.surplus.framework</groupId>
+			<groupId>it.cineca.dspace.framework</groupId>
 			<artifactId>i18n</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>it.cineca.surplus.framework</groupId>
+			<groupId>it.cineca.dspace.framework</groupId>
 			<artifactId>authorization</artifactId>
 		</dependency>
 		<dependency>
@@ -700,15 +700,15 @@
 			<artifactId>spring-security-core</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>it.cineca.surplus.framework</groupId>
+			<groupId>it.cineca.dspace.framework</groupId>
 			<artifactId>menu</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>it.cineca.surplus.framework</groupId>
+			<groupId>it.cineca.dspace.framework</groupId>
 			<artifactId>search</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>it.cineca.surplus.framework</groupId>
+			<groupId>it.cineca.dspace.framework</groupId>
 			<artifactId>widget</artifactId>
 		</dependency>
 		<dependency>
@@ -716,7 +716,7 @@
 			<artifactId>js</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>it.cineca.surplus.framework</groupId>
+			<groupId>it.cineca.dspace.framework</groupId>
 			<artifactId>view</artifactId>
 		</dependency>
 		<dependency>

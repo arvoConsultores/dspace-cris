@@ -10,9 +10,4 @@ Based on DSpace 6 JSPUI so follow the instruction at https://wiki.duraspace.org/
 The source code of the prototype is available at https://github.com/Cineca/DSpace/tree/dspace-prototype-ui
 The source code of the main library used can be found at https://github.com/Cineca/framework-lite 
 Note that the code of framework-lite is available as snapshot in the official Maven Repository at https://github.com/Cineca/mvn-repo
-So the pom of DSpace Prototype is already configured to download this version and no operation required by users.
-
-
-
-
- 
+So the pom of DSpace Prototype is already configured to download this version and no operation required by users. 

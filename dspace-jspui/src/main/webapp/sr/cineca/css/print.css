@@ -19,7 +19,7 @@ html, body {
 .menuTopContainer, .north-icon-div { display: none		!important;}
 .ui-layout-pane-north { display:	block		!important; }
 .ui-layout-pane-center { display:	block		!important; }
-.breadCrumbsLand { display:	none		!important; }
+.breadcrumbsLand { display:	none		!important; }
 
 body { font: 9px "Trebuchet MS", sans-serif; margin: 0px; }
 a { text-decoration: none; }

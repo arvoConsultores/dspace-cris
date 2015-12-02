@@ -1,15 +1,15 @@
 <%@ include file="/common/taglib.jsp"%>
 <div class="breadcrumb-line">
-	<form name="breadCrumbsForm" id="breadCrumbsForm" method="post">
+	<form name="breadcrumbsForm" id="breadcrumbsForm" method="post">
 		<ul class="breadcrumb">
-		<c:forEach items="${hashBreadCrumbList}" var="breadCrumb">
-			<li><c:if test="${breadCrumb.method=='POST'}">
+		<c:forEach items="${breadcrumbList}" var="breadcrumb">
+			<li><c:if test="${breadcrumb.method=='POST'}">
 					<c:set var="action">onclick="javascript:invia('<c:url
-							value="${breadCrumb.url}?breadCrumbId=${breadCrumb.position}&${breadCrumb.queryString}" />')"</c:set>
-				</c:if> <c:if test="${breadCrumb.method=='GET'}">
+							value="${breadcrumb.url}?breadcrumbId=${breadcrumb.position}&${breadcrumb.queryString}" />')"</c:set>
+				</c:if> <c:if test="${breadcrumb.method=='GET'}">
 					<c:set var="action">href="<c:url
-							value="${breadCrumb.url}?breadCrumbId=${breadCrumb.position}&${breadCrumb.queryString}" />"</c:set>
-				</c:if> <a ${action}><fmt:message key="breadcrumbs.${breadCrumb.tag}" /></a>
+							value="${breadcrumb.url}?breadcrumbId=${breadcrumb.position}&${breadcrumb.queryString}" />"</c:set>
+				</c:if> <a ${action}><fmt:message key="breadcrumbs.${breadcrumb.tag}" /></a>
 			</li>
 		</c:forEach>
 		</ul>

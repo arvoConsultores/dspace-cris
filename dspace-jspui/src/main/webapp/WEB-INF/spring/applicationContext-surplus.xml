@@ -66,4 +66,21 @@
  	<bean id="itemService" factory-bean="surplus" factory-method="getItemService" />
  	<bean id="metadataFieldService" factory-bean="surplus" factory-method="getMetadataFieldService" />
  	
+ 	<bean id="breadcrumbsFilter" class="it.cilea.core.breadcrumb.filter.InMemoryBreadcrumbFilter">
+		<property name="excludeUrl">
+			<set>
+				<value>popup/</value>
+				<value>delete/</value>
+				<value>fragment/</value>
+				<value>anonymous/</value>
+				<value>misc/</value>
+				<value>*.fragment</value>
+				<value>*.misc</value>
+				<value>*.ajax</value>
+				<value>*.json</value>
+				<value>*.xml</value>
+			</set>
+		</property>
+	</bean>
+ 	
 </beans>

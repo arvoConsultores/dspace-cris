@@ -1,9 +1,9 @@
 /* breadcrumbs */
-.breadCrumbsLand { font-size: 10px; height: 25px; margin: 4px; }
-.breadCrumbsLand ul { list-style: none; padding: 0; }
-.breadCrumbsLand ul li { display: inline; color: rgb(125, 125, 125); padding-left: 8px; margin-left: 8px; background: transparent url(..//images/icon/bg_bullet_arrow.gif) no-repeat 0 50%; }
-.breadCrumbsLand ul a { text-decoration: none; }
-.breadCrumbsLand ul a:HOVER { text-decoration: underline; }
+.breadcrumbsLand { font-size: 10px; height: 25px; margin: 4px; }
+.breadcrumbsLand ul { list-style: none; padding: 0; }
+.breadcrumbsLand ul li { display: inline; color: rgb(125, 125, 125); padding-left: 8px; margin-left: 8px; background: transparent url(..//images/icon/bg_bullet_arrow.gif) no-repeat 0 50%; }
+.breadcrumbsLand ul a { text-decoration: none; }
+.breadcrumbsLand ul a:HOVER { text-decoration: underline; }
 
 /* all */
 body { font: 62.5% "Trebuchet MS", sans-serif; margin: 0px; color:#222222;}

@@ -182,18 +182,18 @@ window.open(url, name, 'toolbar='+toolbar_str+',menubar='+menubar_str+',status='
 }
 
 /*
- * This javascript constructs a new url based on the current one appending the breadCrumbBack parameter
+ * This javascript constructs a new url based on the current one appending the breadcrumbBack parameter
  * with the value passed in. If no value is passed then the default value (-1) is used.
- * breadCrumbBack is the parameter intercepted by NavigationFilter to restore parameters associated with that url.
+ * breadcrumbBack is the parameter intercepted by NavigationFilter to restore parameters associated with that url.
  * 
- * breadCrumbBack MUST BE a negative number. If a positive number is passed in it is inverted 
+ * breadcrumbBack MUST BE a negative number. If a positive number is passed in it is inverted 
  */
-function navigationBack(breadCrumbBack){
+function navigationBack(breadcrumbBack){
 	
-	if(!breadCrumbBack){
-		breadCrumbBack=-1;
-	} else if(breadCrumbBack>=0){
-		breadCrumbBack=breadCrumbBack*(-1);
+	if(!breadcrumbBack){
+		breadcrumbBack=-1;
+	} else if(breadcrumbBack>=0){
+		breadcrumbBack=breadcrumbBack*(-1);
 	}
 	
 	var currentUrl=document.location.href;
@@ -202,7 +202,7 @@ function navigationBack(breadCrumbBack){
 		currentUrl=currentUrl.substring(0, questionMarkFound);
 	}
 	
-	currentUrl+="?breadCrumbBack="+breadCrumbBack;
+	currentUrl+="?breadcrumbBack="+breadcrumbBack;
 	
 	document.location.href=currentUrl;	
 }

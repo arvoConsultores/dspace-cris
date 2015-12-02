@@ -1,7 +1,12 @@
 <%@ include file="/common/taglib.jsp"%>
 
 <%@ include file="/decorator/include/alive.jsp"%>
-
+<script type="text/javascript">
+function removeWidgetMultiple(inputId) {
+	$('#'+inputId).val('');
+	$('#'+inputId+'_line').hide();
+}
+</script>
 <cineca-authz:authentication property="principal" var="userDetail"/> 
 	<script type="text/javascript">
 		var nRetry=1;

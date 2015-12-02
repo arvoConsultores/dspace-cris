@@ -1,5 +1,7 @@
 <%@ include file="/common/taglib.jsp"%>
 
+<%@ include file="/decorator/include/alive.jsp"%>
+
 <cineca-authz:authentication property="principal" var="userDetail"/> 
 	<script type="text/javascript">
 		var nRetry=1;
@@ -158,25 +160,6 @@
 				}
 			});
 		}
-	<%--	function submitBoomarkForm(){
-			jQuery.ajax({
-				url:"<c:url value="/manager/bookmark/update.json"/>",
-				data:
-				{
-					todo:'create',
-					parentId:'${sessionScope.rootBookmarkId}',
-					index:'0',
-					title:jQuery("#bookmarkName").val(),
-					type:'bookmark'
-				},
-				dataType: 'text',
-				sync: true,
-				success: function(data) {
-					jQuery('#dialogueBookmarkDiv').modal('hide')
-				}
-			});
-		}
-		--%>
 		// ===== GESTIONE DEI login as ===== //
 		function showLoginAs() {
 			jQuery('#loginAs-div').modal();
@@ -247,3 +230,21 @@
 				</div>
 			</div>
 		</div>
+			<%
+			CileaMessageSource source = (CileaMessageSource) MessageUtilConstant.messageUtil.getMessageSource();
+			if(source != null && source.isCurrentUserAdministrative()){
+			%>	
+				<div id="jGrowlCustomMessage" class="panel panel-default hidden">
+					<p><fmt:message key="18n-noadministrative.i18n-vision.message" /></p>
+					<button class="btn btn-default" type="button" onclick="i18nAdministrativeStop();">
+						<fmt:message key="18n-noadministrative.i18n-vision.button" />
+					</button>
+				</div>
+				<script type="text/javascript">
+					JQ(document).ready(function() {
+						clone =$('#jGrowlCustomMessage').clone(true).removeClass('hidden');
+						$.jGrowl(clone.html(), { life: 20000, theme: 'growl-warning', header: '<fmt:message key="18n-noadministrative.i18n-vision.header" />' });
+					});
+				</script>
+			<%}%>
+		

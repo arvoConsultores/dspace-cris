@@ -87,7 +87,7 @@
 	
 	<filter>
 		<filter-name>sitemesh</filter-name>
-		<filter-class>com.opensymphony.module.sitemesh.filter.PageFilter</filter-class>
+		<filter-class>org.sitemesh.config.ConfigurableSiteMeshFilter</filter-class>
 	</filter>
 	
   <!-- Filter mappings -->
@@ -191,11 +191,6 @@
  	<listener>
 		<listener-class>it.cilea.core.listener.StartupListener</listener-class>
 	</listener>
-	<!-- 
-	<listener>
-		<listener-class>it.cilea.core.menu.listener.LoadStartupTreeNode</listener-class>
-	</listener>
-	 -->	
 
   <!-- Servlets -->
 	<servlet>

@@ -1,17 +1,17 @@
 <%@ include file="/common/taglib.jsp"%>
 <div class="row">
-<c:if test="${not empty errors}"><%-- Error Messages --%>
+<c:if test="${not empty errors}">
 	<widget:errorLine errorMessages="${errors}"/>
 	<c:if test="${config:value('notification_jgrowl_active')}">
 		<script type="text/javascript">
 			JQ(document).ready(function() {
-				jGrowlTheme('mono', '<b>Surplus</b>', '<fmt:message key="prompt.error" />', '${signWarningImg}');
+				jGrowlTheme('mono', '<b><fmt:message key="title.jgrowl.error" /></b>', '<fmt:message key="prompt.error" />', '${signWarningImg}');
 			});
 		</script>
 	</c:if>
 	<c:remove var="errors"/>
 </c:if>
-<c:if test="${not empty messages}"><%-- Success Messages --%>
+<c:if test="${not empty messages}">
 	<widget:infoLine infoMessages="${messages}"/>
 	<c:if test="${config:value('notification_jgrowl_active')}">
 		<!-- growl -->

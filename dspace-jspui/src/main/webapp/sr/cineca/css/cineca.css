@@ -245,6 +245,8 @@ span.export {cursor: pointer; display: inline; }
 
 .dropdown-menu.icons-right > li > a > i.fa-trash-o { margin-right: 2px; }
 
+.breadcrumb-line {margin-top: 10px;}
+
 @media (min-width: 768px) {
   .modal-xl {
     width: 90%;

@@ -32,12 +32,6 @@
 	<bean id="sqlSearchStrategy" factory-bean="surplus" factory-method="getSqlSearchStrategy" />
 	<bean id="hibernateSearchStrategy" factory-bean="surplus" factory-method="getHibernateSearchStrategy" />
 	
-	<bean id="orcidHubService" factory-bean="surplus" factory-method="getOrcidHubService" />
-
-	<bean id="orcidHubWorkFlow" factory-bean="surplus" factory-method="getOrcidHubWorkFlow" />
-
-
-
 	<bean id="controllerLogicFactory" factory-bean="surplus" factory-method="getControllerLogicFactory" />
 	<bean id="fragmentControllerLogicFactory" factory-bean="surplus" factory-method="getFragmentControllerLogicFactory" />
 	

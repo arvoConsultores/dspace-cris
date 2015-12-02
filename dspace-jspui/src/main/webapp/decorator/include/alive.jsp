@@ -48,22 +48,4 @@
 		$('.overlay').remove();
 		$.cookie("iris-inter-module-login", "true", { path: "/" });
 	}
-	
-	$(function() {		 
-		if(!$.cookie("iris-inter-module-login") && authenticatedUser){
-			disableUserInteraction();				
-			$.each(forceLogindModuleMap, function(module, value) {
-				var img = new Image();
-			    img.src = (module.match("^/")?"":"/") + module + "/img/pixel_for_cas_login.gif?random="+Math.random();
-			    img.onload = (function(){
-			    	forceLogindModuleMap[module]=true;
-	            });					
-			    img.onerror = (function(){
-			    	//alert(module + " NOT loaded");
-	            });
-			});
-			checkModuleCalls(forceLogindModuleMap, enableUserInteraction);
-			window.setTimeout("enableUserInteraction()",10000);
-		}
-	});
 </script>

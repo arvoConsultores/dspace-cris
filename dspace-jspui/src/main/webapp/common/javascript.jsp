@@ -1,8 +1,5 @@
 <%@ include file="/common/taglib.jsp"%>	
-
-	<c:if test="${jqueryCompatibilityMode == null || jqueryCompatibilityMode==''}"><c:set var="jqueryVersion" value="1.11.0" /></c:if>
-	<c:if test="${jqueryCompatibilityMode != null && jqueryCompatibilityMode}"><c:set var="jqueryVersion" value="1.8.3" /></c:if>
-	<script type="text/javascript" src="/${SR_MODULE_NAME}/jquery/js/jquery-${jqueryVersion}.min.js"></script>
+	<script type="text/javascript" src="/${SR_MODULE_NAME}/jquery/js/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="/${SR_MODULE_NAME}/jquery/js/ui-1.10.4/jquery-ui.min.js"></script>
 	
 	<script type="text/javascript" src="/${SR_MODULE_NAME}/londinium/js/plugins/charts/sparkline.min.js"></script>
@@ -254,7 +251,6 @@
 	<script type="text/javascript" src="/${SR_MODULE_NAME}/cineca/js/cilea.js?irisVersion=${IRIS_VERSION}"></script>
 	<script type="text/javascript" src="/${SR_MODULE_NAME}/cineca/js/bookmark.js?irisVersion=${IRIS_VERSION}"></script>
 	<script type="text/javascript" src="/${SR_MODULE_NAME}/cineca/js/fragment.js?irisVersion=${IRIS_VERSION}"></script>
-	<span style="display:none;" id="rememberToSaveText"><fmt:message key="prompt.rememberToSave"/></span>
 	<script type="text/javascript" src="/${SR_MODULE_NAME}/cineca/js/print.js?irisVersion=${IRIS_VERSION}"></script>
 	<script type="text/javascript" src="/${SR_MODULE_NAME}/cineca/js/widget.js?irisVersion=${IRIS_VERSION}"></script>
 	<script type="text/javascript" src="/${SR_MODULE_NAME}/cineca/js/layout.js?irisVersion=${IRIS_VERSION}"></script>

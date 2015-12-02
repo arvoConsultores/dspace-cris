@@ -7,8 +7,6 @@ import org.dspace.content.service.WorkspaceItemService;
 import org.dspace.utils.DSpace;
 
 import it.cilea.core.authorization.service.AuthorizationService;
-import it.cilea.core.authorization.service.OrcidHubService;
-import it.cilea.core.authorization.service.OrcidHubWorkFlow;
 import it.cilea.core.configuration.service.ConfigurationService;
 import it.cilea.core.fragment.factory.FragmentControllerLogicFactory;
 import it.cilea.core.i18n.conf.CileaMessageSource;
@@ -68,18 +66,6 @@ public class Surplus {
 
 	public HibernateSearchStrategy getHibernateSearchStrategy() {
 		return dspace.getServiceManager().getServiceByName("hibernateSearchStrategy", HibernateSearchStrategy.class);
-	}
-
-	public OrcidHubService getOrcidHubService() {
-		OrcidHubService orcidHubService = dspace.getServiceManager().getServiceByName("orcidHubService",
-				OrcidHubService.class);
-		return orcidHubService;
-	}
-
-	public OrcidHubWorkFlow getOrcidHubWorkFlow() {
-		OrcidHubWorkFlow orcidHubWorkFlow = dspace.getServiceManager().getServiceByName("orcidHubWorkFlow",
-				OrcidHubWorkFlow.class);
-		return orcidHubWorkFlow;
 	}
 
 	public DatabaseReloadableMessageSource getDatabaseReloadableMessageSource() {

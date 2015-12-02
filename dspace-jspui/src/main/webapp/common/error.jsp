@@ -7,7 +7,7 @@
 			<c:if test="${config:value('notification_jgrowl_active')}">
 				<script type="text/javascript">
 					JQ(document).ready(function() {
-						jGrowlTheme('mono', '<b>SURplus</b>', '<fmt:message key="prompt.error" />', '${signWarningImg}');
+						jGrowlTheme('mono', '<b><fmt:message key="title.jgrowl.error" /></b>', '<fmt:message key="prompt.error" />', '${signWarningImg}');
 					});
 				</script>
 			</c:if>

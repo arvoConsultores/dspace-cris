@@ -3,7 +3,28 @@
 #### Getting started
  
 Installation of the prototype follow the standard installation of DSpace. 
-Based on DSpace 6 JSPUI so follow the instruction at https://wiki.duraspace.org/display/DSDOC6x/DSpace+6.x+Documentation.
+Based on DSpace 6 JSPUI so follow the instruction at https://wiki.duraspace.org/display/DSDOC6x/Installing+DSpace
+Note that the code for the DSpace Prototype is in the branch "dspace-prototype-ui" at https://github.com/Cineca/DSpace.git repository.  
+
+For the impatient:
+Be sure to understand the general DSpace installation procedure before to attempt to use this instructions (https://wiki.duraspace.org/display/DSDOC6x/DSpace+6.x+Documentation)
+** useradd -m dspace
+** git clone https://github.com/Cineca/DSpace.git --branch dspace-prototype-ui [dspace-source]/
+** createuser --username=postgres --no-superuser --pwprompt dspace
+** createdb --username=postgres --owner=dspace --encoding=UNICODE dspace
+** install pgcrypto... https://wiki.duraspace.org/display/DSDOC6x/Installing+DSpace#InstallingDSpace-PostgreSQL9.4orlater%28withpgcryptoinstalled%29
+** cd [dspace-source]
+** vi build.properties
+** mkdir [dspace]
+** chown dspace [dspace]
+** su - dspace
+** cd [dspace-source]
+** mvn package
+** cd [dspace-source]/dspace/target/dspace-installer
+** ant fresh_install
+** cp -r [dspace]/webapps/* [tomcat]/webapps
+** /etc/init.d/tomcat start
+** [dspace]/bin/dspace create-administrator
 
 #### Development
 

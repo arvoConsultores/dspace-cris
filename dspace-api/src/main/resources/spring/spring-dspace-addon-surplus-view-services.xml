@@ -10,7 +10,7 @@
 			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd
 			http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
-	<context:property-placeholder location="classpath:settings.properties,classpath:patch.properties,classpath:project.properties"/>
+	<context:property-placeholder location="classpath:settings.properties"/>
 				
 	<bean id="viewBuilderDao" class="it.cilea.core.view.dao.hibernate.ViewBuilderDaoHibernate">
 		<property name="sessionFactory" ref="sessionFactorySur"></property>

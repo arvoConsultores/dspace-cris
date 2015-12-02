@@ -30,7 +30,7 @@
 	</authentication-manager>
 	
 <!-- 
-	<context:property-placeholder location="classpath:cas.properties,classpath:settings.properties,classpath:patch.properties,classpath:project.properties"/>
+	<context:property-placeholder location="classpath:cas.properties,classpath:settings.properties"/>
 
 	<sec:http pattern="/authorization/changeCookieUserSettings.htm" security="none" />
 	<sec:http pattern="/authorization/deleteCookie.htm" security="none" />

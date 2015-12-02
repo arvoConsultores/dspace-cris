@@ -5,9 +5,7 @@ import javax.validation.Valid;
 
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.content.DSpaceObject;
-import org.dspace.content.service.ItemService;
 import org.dspace.core.Context;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,16 +14,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import it.cilea.core.widget.model.Widget;
-import it.cilea.core.widget.service.WidgetService;
 
 @Controller
 @RequestMapping("/metadata")
 public class MetadataController {
-
-	@Autowired
-	private WidgetService widgetService;
-	@Autowired
-	private ItemService itemService;
 
 	@ModelAttribute("command")
 	public Widget formBacking(@RequestParam String widgetClass, HttpServletRequest request) throws Exception {
@@ -34,7 +26,7 @@ public class MetadataController {
 		return widget;
 	}
 
-	@RequestMapping("/newField")
+	@RequestMapping("/field/new")
 	public ModelAndView showItem(@Valid @ModelAttribute("command") Widget widget, BindingResult result,
 			HttpServletRequest request) throws Exception {
 		widget.init();
@@ -54,14 +46,7 @@ public class MetadataController {
 				return null;
 			}
 		};
-		return new ModelAndView("metadata/newField", "command", d);
+		return new ModelAndView("metadata/field/new", "command", d);
 	}
 
-	public void setWidgetService(WidgetService widgetService) {
-		this.widgetService = widgetService;
-	}
-
-	public void setItemService(ItemService itemService) {
-		this.itemService = itemService;
-	}
 }

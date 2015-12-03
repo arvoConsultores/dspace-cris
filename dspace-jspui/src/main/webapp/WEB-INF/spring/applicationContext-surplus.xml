@@ -70,6 +70,7 @@
  	<bean id="metadataFieldService" factory-bean="surplus" factory-method="getMetadataFieldService" />
  	<bean id="authorizeService" factory-bean="surplus" factory-method="getAuthorizeService" />
  	<bean id="authenticationService" factory-bean="surplus" factory-method="getAuthenticationService" />
+ 	<bean id="coreService" factory-bean="surplus" factory-method="getCoreService" />
  	
  	<bean id="breadcrumbsFilter" class="it.cilea.core.breadcrumb.filter.InMemoryBreadcrumbFilter">
 		<property name="excludeUrl">

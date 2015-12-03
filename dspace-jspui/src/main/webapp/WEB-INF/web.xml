@@ -53,7 +53,22 @@
   
 
   <!-- Filters -->
-  
+	<filter>
+		<filter-name>charsetFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	<filter>
+		<filter-name>CmsFilter</filter-name>
+		<filter-class>it.cineca.sr.simplecms.CmsFilter</filter-class>
+	</filter>
   <!-- session/request filter (from util), handles setting up requests and sessions correctly -->
   <filter>
     <filter-name>dspace.request</filter-name>
@@ -161,6 +176,20 @@
 		<filter-name>breadcrumbsFilter</filter-name>
 		<url-pattern>*.htm</url-pattern>
 	</filter-mapping>
+	
+	<filter-mapping>
+		<filter-name>charsetFilter</filter-name>
+		<url-pattern>*.htm</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>charsetFilter</filter-name>
+		<url-pattern>*.ajax</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CmsFilter</filter-name>
+		<url-pattern>/sr/*</url-pattern>
+	</filter-mapping>
+	
 		
 	<!-- questo filtro DEVE ESSERE PER ULTIMO!!!! -->
 	<filter-mapping>
@@ -542,6 +571,10 @@
 	<servlet-mapping>
 		<servlet-name>springmvc</servlet-name>
 		<url-pattern>*.htm</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>*.json</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>springmvc</servlet-name>

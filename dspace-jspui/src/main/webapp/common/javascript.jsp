@@ -1,5 +1,7 @@
 <%@ include file="/common/taglib.jsp"%>	
-	<script type="text/javascript" src="/${SR_MODULE_NAME}/jquery/js/jquery-1.11.0.min.js"></script>
+	<c:if test="${empty jqueryCompatibilityMode}"><c:set var="jqueryVersion" value="1.11.0" /></c:if>
+	<c:if test="${not empty jqueryCompatibilityMode}"><c:set var="jqueryVersion" value="1.8.3" /></c:if>
+	<script type="text/javascript" src="/${SR_MODULE_NAME}/jquery/js/jquery-${jqueryVersion}.min.js"></script>
 	<script type="text/javascript" src="/${SR_MODULE_NAME}/jquery/js/ui-1.10.4/jquery-ui.min.js"></script>
 	
 	<script type="text/javascript" src="/${SR_MODULE_NAME}/londinium/js/plugins/charts/sparkline.min.js"></script>

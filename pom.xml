@@ -1381,6 +1381,11 @@
 		</dependency>
 		<dependency>
 			<groupId>it.cineca.dspace.framework</groupId>
+			<artifactId>sr-api</artifactId>
+			<version>${framework-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>it.cineca.dspace.framework</groupId>
 			<artifactId>view</artifactId>
 			<version>${framework-version}</version>
 		</dependency>	

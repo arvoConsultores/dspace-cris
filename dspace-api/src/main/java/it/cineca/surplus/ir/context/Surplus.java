@@ -23,6 +23,7 @@ import it.cilea.core.search.strategy.impl.sql.SqlSearchStrategy;
 import it.cilea.core.search.util.SearchBuilderTemplate;
 import it.cilea.core.service.JaxbService;
 import it.cilea.core.spring.factory.ControllerLogicFactory;
+import it.cilea.core.spring.service.CoreService;
 import it.cilea.core.spring.util.MessageUtil;
 import it.cilea.core.view.service.ViewService;
 import it.cilea.core.widget.service.WidgetService;
@@ -134,4 +135,9 @@ public class Surplus {
 	public AuthenticationService getAuthenticationService() {
 		return dspace.getServiceManager().getServiceByName("authenticationService", AuthenticationService.class);
 	}
+
+	public CoreService getCoreService() {
+		return dspace.getServiceManager().getServiceByName("coreService", CoreService.class);
+	}
+
 }

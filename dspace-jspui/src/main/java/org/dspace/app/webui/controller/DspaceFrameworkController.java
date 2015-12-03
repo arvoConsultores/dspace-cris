@@ -25,6 +25,7 @@ import it.cilea.core.view.util.ViewUtil;
 import it.cilea.core.widget.WidgetConstant;
 import it.cilea.core.widget.model.Parameter;
 import it.cilea.core.widget.model.WidgetDictionary;
+import it.cilea.core.widget.model.impl.command.CommandSelect2Widget;
 import it.cilea.core.widget.model.impl.command.CommandTextWidget;
 import it.cilea.core.widget.model.impl.core.HtmlWidget;
 import it.cilea.core.widget.service.WidgetService;
@@ -34,7 +35,7 @@ public class DspaceFrameworkController extends Spring3CoreController {
 
 	@RequestMapping("/dspace/framework/init")
 	public ModelAndView get(HttpServletRequest request) throws Exception {
-		//menuInit(request.getServletContext(), treeNodeService);
+		// menuInit(request.getServletContext(), treeNodeService);
 		viewBuilderInit(viewService, widgetService);
 		saveMessage(request, messageUtil.findMessage("action.dspace.init"));
 		return new ModelAndView("redirect:/?CLEAR");
@@ -149,6 +150,15 @@ public class DspaceFrameworkController extends Spring3CoreController {
 			treeNodeService.saveOrUpdate(treeNode);
 			map.put(treeNode.getIdentifier(), treeNode);
 		}
+		if (!map.containsKey("/module/configuration/cms.menu")) {
+			TreeNode treeNode = new TreeNode();
+			treeNode.setIdentifier("/module/configuration/cms.menu");
+			treeNode.setBrotherOrder(2);
+			treeNode.setTreeParentNodeId(map.get("/module/configuration.menu").getId());
+			treeNode.setLink("/${DSPACE_MODULE_NAME}/cms/elfinder.htm?CLEAR");
+			treeNodeService.saveOrUpdate(treeNode);
+			map.put(treeNode.getIdentifier(), treeNode);
+		}
 		MenuUtil.reload(servletContext, treeNodeService);
 	}
 
@@ -226,7 +236,63 @@ public class DspaceFrameworkController extends Spring3CoreController {
 				}
 				{
 					ViewBuilderWidgetLink link = new ViewBuilderWidgetLink();
-					link.setOrdering(1);
+					link.setOrdering(10);
+					link.setViewBuilderId(viewBuilder.getId());
+					link.setWidgetId(widget.getId());
+					viewService.saveOrUpdate(link);
+				}
+			}
+			{
+				CommandSelect2Widget widget = new CommandSelect2Widget();
+				widget.setName("get:command.metadataFieldPlaceMap[dc_format_medium_1]");
+				widget.setModelAttributeName("command.metadataFieldPlaceMap[dc_format_medium_1]");
+				widget.setPageAttributeName("command.metadataFieldPlaceMap[dc_format_medium_1]");
+				widget.setPopulationType(WidgetConstant.OptionsWidgetPopulationType.JAVA_METHOD.name());
+				widget.setPopulationValue("coreService|getSelectableListFromConcatenated");
+				widgetService.saveOrUpdate(widget);
+				{
+					Parameter parameter = new Parameter();
+					parameter.setWidgetId(widget.getId());
+					parameter.setOrdering(1);
+					parameter.setDiscriminator(WidgetConstant.ParameterType.ALLOW_MULTIPLE.name());
+					parameter.setValue("false");
+					widgetService.saveOrUpdate(parameter);
+				}
+				{
+					Parameter parameter = new Parameter();
+					parameter.setWidgetId(widget.getId());
+					parameter.setOrdering(1);
+					parameter.setDiscriminator(WidgetConstant.ParameterType.VALUE.name());
+					parameter.setValue("cd,paper,dvd");
+					widgetService.saveOrUpdate(parameter);
+				}
+				{
+					Parameter parameter = new Parameter();
+					parameter.setWidgetId(widget.getId());
+					parameter.setOrdering(2);
+					parameter.setDiscriminator(WidgetConstant.ParameterType.VALUE.name());
+					parameter.setValue("label.format.medium.");
+					widgetService.saveOrUpdate(parameter);
+				}
+				{
+					Parameter parameter = new Parameter();
+					parameter.setWidgetId(widget.getId());
+					parameter.setOrdering(1);
+					parameter.setDiscriminator(WidgetConstant.ParameterType.AUTO_DISPLAY.name());
+					parameter.setValue("false");
+					widgetService.saveOrUpdate(parameter);
+				}
+				{
+					WidgetDictionary dictionary = new WidgetDictionary();
+					dictionary.setWidgetId(widget.getId());
+					dictionary.setWidget(widget);
+					dictionary.setDiscriminator(WidgetConstant.WidgetDictionaryType.LABEL.name());
+					dictionary.setI18nCustomIdentifier("label.format.medium");
+					widgetService.saveOrUpdate(dictionary);
+				}
+				{
+					ViewBuilderWidgetLink link = new ViewBuilderWidgetLink();
+					link.setOrdering(15);
 					link.setViewBuilderId(viewBuilder.getId());
 					link.setWidgetId(widget.getId());
 					viewService.saveOrUpdate(link);
@@ -256,7 +322,7 @@ public class DspaceFrameworkController extends Spring3CoreController {
 				}
 				{
 					ViewBuilderWidgetLink link = new ViewBuilderWidgetLink();
-					link.setOrdering(1);
+					link.setOrdering(20);
 					link.setViewBuilderId(viewBuilder.getId());
 					link.setWidgetId(widget.getId());
 					viewService.saveOrUpdate(link);
@@ -286,7 +352,7 @@ public class DspaceFrameworkController extends Spring3CoreController {
 				}
 				{
 					ViewBuilderWidgetLink link = new ViewBuilderWidgetLink();
-					link.setOrdering(1);
+					link.setOrdering(30);
 					link.setViewBuilderId(viewBuilder.getId());
 					link.setWidgetId(widget.getId());
 					viewService.saveOrUpdate(link);
@@ -327,7 +393,55 @@ public class DspaceFrameworkController extends Spring3CoreController {
 				}
 				{
 					ViewBuilderWidgetLink link = new ViewBuilderWidgetLink();
-					link.setOrdering(1);
+					link.setOrdering(10);
+					link.setViewBuilderId(viewBuilder.getId());
+					link.setWidgetId(widget.getId());
+					viewService.saveOrUpdate(link);
+				}
+			}
+			{
+				CommandSelect2Widget widget = new CommandSelect2Widget();
+				widget.setName("form:command.metadataFieldPlaceMap[dc_format_medium_1]");
+				widget.setModelAttributeName("command.metadataFieldPlaceMap[dc_format_medium_1]");
+				widget.setPageAttributeName("command.metadataFieldPlaceMap[dc_format_medium_1]");
+				widget.setPopulationType(WidgetConstant.OptionsWidgetPopulationType.JAVA_METHOD.name());
+				widget.setPopulationValue("coreService|getSelectableListFromConcatenated");
+				widgetService.saveOrUpdate(widget);
+				{
+					Parameter parameter = new Parameter();
+					parameter.setWidgetId(widget.getId());
+					parameter.setOrdering(1);
+					parameter.setDiscriminator(WidgetConstant.ParameterType.ALLOW_MULTIPLE.name());
+					parameter.setValue("false");
+					widgetService.saveOrUpdate(parameter);
+				}
+				{
+					Parameter parameter = new Parameter();
+					parameter.setWidgetId(widget.getId());
+					parameter.setOrdering(1);
+					parameter.setDiscriminator(WidgetConstant.ParameterType.VALUE.name());
+					parameter.setValue("cd,paper,dvd");
+					widgetService.saveOrUpdate(parameter);
+				}
+				{
+					Parameter parameter = new Parameter();
+					parameter.setWidgetId(widget.getId());
+					parameter.setOrdering(2);
+					parameter.setDiscriminator(WidgetConstant.ParameterType.VALUE.name());
+					parameter.setValue("label.format.medium.");
+					widgetService.saveOrUpdate(parameter);
+				}
+				{
+					WidgetDictionary dictionary = new WidgetDictionary();
+					dictionary.setWidgetId(widget.getId());
+					dictionary.setWidget(widget);
+					dictionary.setDiscriminator(WidgetConstant.WidgetDictionaryType.LABEL.name());
+					dictionary.setI18nCustomIdentifier("label.format.medium");
+					widgetService.saveOrUpdate(dictionary);
+				}
+				{
+					ViewBuilderWidgetLink link = new ViewBuilderWidgetLink();
+					link.setOrdering(15);
 					link.setViewBuilderId(viewBuilder.getId());
 					link.setWidgetId(widget.getId());
 					viewService.saveOrUpdate(link);
@@ -357,7 +471,7 @@ public class DspaceFrameworkController extends Spring3CoreController {
 				}
 				{
 					ViewBuilderWidgetLink link = new ViewBuilderWidgetLink();
-					link.setOrdering(1);
+					link.setOrdering(20);
 					link.setViewBuilderId(viewBuilder.getId());
 					link.setWidgetId(widget.getId());
 					viewService.saveOrUpdate(link);
@@ -387,7 +501,7 @@ public class DspaceFrameworkController extends Spring3CoreController {
 				}
 				{
 					ViewBuilderWidgetLink link = new ViewBuilderWidgetLink();
-					link.setOrdering(1);
+					link.setOrdering(30);
 					link.setViewBuilderId(viewBuilder.getId());
 					link.setWidgetId(widget.getId());
 					viewService.saveOrUpdate(link);

@@ -223,9 +223,9 @@ public class DspaceFrameworkController extends Spring3CoreController {
 			}
 			{
 				CommandTextWidget widget = new CommandTextWidget();
-				widget.setName("get:command.metadataFieldPlaceMap[dc_abstract_1]");
-				widget.setModelAttributeName("command.metadataFieldPlaceMap[dc_abstract_1]");
-				widget.setPageAttributeName("command.metadataFieldPlaceMap[dc_abstract_1]");
+				widget.setName("get:command.metadataFieldPlaceMap[dc_title_alternative_1]");
+				widget.setModelAttributeName("command.metadataFieldPlaceMap[dc_title_alternative_1]");
+				widget.setPageAttributeName("command.metadataFieldPlaceMap[dc_title_alternative_1]");
 				widgetService.saveOrUpdate(widget);
 				{
 					Parameter parameter = new Parameter();
@@ -240,7 +240,7 @@ public class DspaceFrameworkController extends Spring3CoreController {
 					dictionary.setWidgetId(widget.getId());
 					dictionary.setWidget(widget);
 					dictionary.setDiscriminator(WidgetConstant.WidgetDictionaryType.LABEL.name());
-					dictionary.setI18nCustomIdentifier("label.abstract");
+					dictionary.setI18nCustomIdentifier("label.title_alternative");
 					widgetService.saveOrUpdate(dictionary);
 				}
 				{
@@ -307,6 +307,14 @@ public class DspaceFrameworkController extends Spring3CoreController {
 					widgetService.saveOrUpdate(parameter);
 				}
 				{
+					WidgetDictionary dictionary = new WidgetDictionary();
+					dictionary.setWidgetId(widget.getId());
+					dictionary.setWidget(widget);
+					dictionary.setDiscriminator(WidgetConstant.WidgetDictionaryType.LABEL.name());
+					dictionary.setI18nCustomIdentifier("label.title");
+					widgetService.saveOrUpdate(dictionary);
+				}
+				{
 					ViewBuilderWidgetLink link = new ViewBuilderWidgetLink();
 					link.setOrdering(1);
 					link.setViewBuilderId(viewBuilder.getId());
@@ -316,9 +324,9 @@ public class DspaceFrameworkController extends Spring3CoreController {
 			}
 			{
 				CommandTextWidget widget = new CommandTextWidget();
-				widget.setName("form:command.metadataFieldPlaceMap[dc_abstract_1]");
-				widget.setModelAttributeName("command.metadataFieldPlaceMap[dc_abstract_1]");
-				widget.setPageAttributeName("command.metadataFieldPlaceMap[dc_abstract_1]");
+				widget.setName("form:command.metadataFieldPlaceMap[dc_title_alternative_1]");
+				widget.setModelAttributeName("command.metadataFieldPlaceMap[dc_title_alternative_1]");
+				widget.setPageAttributeName("command.metadataFieldPlaceMap[dc_title_alternative_1]");
 				widgetService.saveOrUpdate(widget);
 				{
 					Parameter parameter = new Parameter();
@@ -327,6 +335,14 @@ public class DspaceFrameworkController extends Spring3CoreController {
 					parameter.setDiscriminator(WidgetConstant.ParameterType.ALLOW_MULTIPLE.name());
 					parameter.setValue("false");
 					widgetService.saveOrUpdate(parameter);
+				}
+				{
+					WidgetDictionary dictionary = new WidgetDictionary();
+					dictionary.setWidgetId(widget.getId());
+					dictionary.setWidget(widget);
+					dictionary.setDiscriminator(WidgetConstant.WidgetDictionaryType.LABEL.name());
+					dictionary.setI18nCustomIdentifier("label.title_alternative");
+					widgetService.saveOrUpdate(dictionary);
 				}
 				{
 					ViewBuilderWidgetLink link = new ViewBuilderWidgetLink();
@@ -349,6 +365,14 @@ public class DspaceFrameworkController extends Spring3CoreController {
 					parameter.setDiscriminator(WidgetConstant.ParameterType.ALLOW_MULTIPLE.name());
 					parameter.setValue("true");
 					widgetService.saveOrUpdate(parameter);
+				}
+				{
+					WidgetDictionary dictionary = new WidgetDictionary();
+					dictionary.setWidgetId(widget.getId());
+					dictionary.setWidget(widget);
+					dictionary.setDiscriminator(WidgetConstant.WidgetDictionaryType.LABEL.name());
+					dictionary.setI18nCustomIdentifier("label.subject.classification");
+					widgetService.saveOrUpdate(dictionary);
 				}
 				{
 					ViewBuilderWidgetLink link = new ViewBuilderWidgetLink();

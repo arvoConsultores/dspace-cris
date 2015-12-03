@@ -68,6 +68,8 @@ public class ItemFormController extends Spring3CoreController {
 			String[] fieldArray = StringUtils.split(fieldString, "_");
 			MetadataField metadataField = metadataFieldService.findByElement(context, fieldArray[0], fieldArray[1],
 					fieldArray.length > 3 ? fieldArray[2] : null);
+			if (metadataField == null)
+				continue;
 			if (!finalMap.containsKey(metadataField))
 				finalMap.put(metadataField, new ArrayList<String>());
 			if (StringUtils.isNotBlank(item.getMetadataFieldPlaceMap().get(fieldString)))

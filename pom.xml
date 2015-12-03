@@ -44,9 +44,9 @@
         <spring.version>3.2.14.RELEASE</spring.version>
         <org.sitemesh.sitemesh.version>3.0.1</org.sitemesh.sitemesh.version>
         <spring.security.version>3.2.8.RELEASE</spring.security.version>
-        <displaytag.version>1.2-modified-for-POI-36</displaytag.version>
+        <displaytag.version>1.2</displaytag.version>
         <javax.validation.version>1.0.0.GA</javax.validation.version>
-        <framework-version>15.12.1.0-SNAPSHOT</framework-version>
+        <framework-version>1.0-SNAPSHOT</framework-version>
 		<rhino.version>1.7R1</rhino.version>
 		<org.eclipse.persistence.version>2.5.0</org.eclipse.persistence.version>
         <!-- 'root.basedir' is the path to the root [dspace-src] dir. It must be redefined by each child POM,
@@ -1723,33 +1723,95 @@
       <tag>HEAD</tag>
    </scm>
 
-    <!--
-        Distribution Management is currently used by the Continuum
-        server to update snapshots it generates. This will also be used
-        on release to deploy release versions to the repository by the
-        release manager.
-    -->
-    <distributionManagement>
-        <!-- further distribution management is found upstream in the sonatype parent -->
-    </distributionManagement>
-
-    <repositories>
-        <repository>
+   <repositories>
+       <repository>
+			<id>cineca-repo</id>
+			<name>Cineca Maven Repository</name>
+			<url>https://github.com/Cineca/mvn-repo/raw/master/releases</url>
+			<releases>
+				<enabled>true</enabled>
+				<checksumPolicy>never</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+				<checksumPolicy>never</checksumPolicy>
+			</snapshots>
+		</repository>
+		
+		<repository>
+			<id>cineca-repo-snapshot</id>
+			<name>Cineca Maven Repository</name>
+			<url>https://github.com/Cineca/mvn-repo/raw/master/snapshots</url>
+			<releases>
+				<enabled>false</enabled>
+				<checksumPolicy>never</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<checksumPolicy>never</checksumPolicy>
+			</snapshots>
+		</repository>
+		
+		<repository>
+	         <id>sonatype-releases</id>
+	         <name>Sonatype Releases Repository</name>
+	         <url>http://oss.sonatype.org/content/repositories/releases/</url>
+	    </repository>
+   
+   </repositories>
+   
+   <pluginRepositories>
+        <pluginRepository>
+            <id>cineca-repo</id>
+			<name>Cineca Maven Repository</name>
+			<url>https://github.com/Cineca/mvn-repo/raw/master/releases</url>
+			<releases>
+				<enabled>true</enabled>
+				<checksumPolicy>never</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+				<checksumPolicy>never</checksumPolicy>
+			</snapshots>
+        </pluginRepository>
+        
+        <pluginRepository>
+            <id>cineca-repo-snapshot</id>
+			<name>Cineca Maven Repository</name>
+			<url>https://github.com/Cineca/mvn-repo/raw/master/snapshots</url>
+			<releases>
+				<enabled>false</enabled>
+				<checksumPolicy>never</checksumPolicy>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+				<checksumPolicy>never</checksumPolicy>
+			</snapshots>
+        </pluginRepository>
+        
+        <pluginRepository>
             <id>sonatype-releases</id>
-            <name>Sonatype Releases Repository</name>
-            <url>https://oss.sonatype.org/content/repositories/releases/</url>
-        </repository>
-        <!--Nor sonatype nor maven central appear to still contain org.restlet.jee:org.restlet.ext.servlet:jar:2.1.1 any more. No problem if it is in your local repo. Build fail if it isn't-->
-        <repository>
-            <id>restlet</id>
-            <name>restlet</name>
-            <url>http://maven.restlet.org</url>
-        </repository>
-        <repository>
-            <id>cineca-nexus-cineca-repository</id>
-            <name>cineca-nexus-cineca-repository</name>
-            <url>http://nexus.u-gov.it/nexus/content/groups/cineca-repository</url>
-       </repository>
-    </repositories>
+	         <name>Sonatype Releases Repository</name>
+	         <url>http://oss.sonatype.org/content/repositories/releases/</url>
+        </pluginRepository>
+    </pluginRepositories>
+    
+
+   	<distributionManagement>
+    	<repository>
+        	<id>repo</id>
+        	<name>Cineca Maven Repository</name>
+        	<url>https://github.com/Cineca/mvn-repo/raw/master/releases</url>
+    	</repository>
+    	<snapshotRepository>
+        	<id>snapshot-repo</id>
+        	<name>Cineca Maven Repository</name>
+        	<url>https://github.com/Cineca/mvn-repo/raw/master/snapshots</url>
+    	</snapshotRepository>
+    	<site>
+            <id>website</id>
+            <url>http://cineca.github.io/dspace-cris/index.html</url>
+        </site>        
+	</distributionManagement>
 
 </project>

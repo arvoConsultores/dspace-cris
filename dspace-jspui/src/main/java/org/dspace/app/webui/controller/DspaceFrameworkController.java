@@ -34,7 +34,7 @@ public class DspaceFrameworkController extends Spring3CoreController {
 
 	@RequestMapping("/dspace/framework/init")
 	public ModelAndView get(HttpServletRequest request) throws Exception {
-		menuInit(request.getServletContext(), treeNodeService);
+		//menuInit(request.getServletContext(), treeNodeService);
 		viewBuilderInit(viewService, widgetService);
 		saveMessage(request, messageUtil.findMessage("action.dspace.init"));
 		return new ModelAndView("redirect:/?CLEAR");
@@ -90,6 +90,7 @@ public class DspaceFrameworkController extends Spring3CoreController {
 			treeNode.setIdentifier("/module/browse/collection.menu");
 			treeNode.setBrotherOrder(2);
 			treeNode.setTreeParentNodeId(map.get("/module/browse.menu").getId());
+			treeNode.setLink("/${DSPACE_MODULE_NAME}/collection/browse.htm?CLEAR");
 			treeNodeService.saveOrUpdate(treeNode);
 			map.put(treeNode.getIdentifier(), treeNode);
 		}
@@ -109,6 +110,16 @@ public class DspaceFrameworkController extends Spring3CoreController {
 			treeNode.setTreeParentNodeId(map.get("/top.menu").getId());
 			treeNode.setLink("/${DSPACE_MODULE_NAME}/item/new.htm");
 			treeNode.setVisibilityPath(".*/item/.*");
+			treeNodeService.saveOrUpdate(treeNode);
+			map.put(treeNode.getIdentifier(), treeNode);
+		}
+		if (!map.containsKey("/top/community/new.menu")) {
+			TreeNode treeNode = new TreeNode();
+			treeNode.setIdentifier("/top/community/new.menu");
+			treeNode.setBrotherOrder(1);
+			treeNode.setTreeParentNodeId(map.get("/top.menu").getId());
+			treeNode.setLink("/${DSPACE_MODULE_NAME}/dspace-admin/edit-communities");
+			treeNode.setVisibilityPath(".*/community/.*");
 			treeNodeService.saveOrUpdate(treeNode);
 			map.put(treeNode.getIdentifier(), treeNode);
 		}

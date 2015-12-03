@@ -62,6 +62,9 @@ public class ItemNewFormController extends Spring3CoreController {
 		WorkspaceItem wsi = workspaceItemService.create(context, collection, false);
 		//authenticationService.authenticate(context, "r.suardi@cineca.it", "test", null, request);
 		Item item = wsi.getItem();
+		item.setArchived(true);
+		item.setOwningCollection(collection);
+		context.complete();
 		return item;
 	}
 

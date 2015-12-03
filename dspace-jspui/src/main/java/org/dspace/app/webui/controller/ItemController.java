@@ -5,7 +5,9 @@ import java.util.Iterator;
 import javax.servlet.http.HttpServletRequest;
 
 import org.dspace.app.webui.util.UIUtil;
+import org.dspace.content.Collection;
 import org.dspace.content.Item;
+import org.dspace.content.service.CollectionService;
 import org.dspace.content.service.ItemService;
 import org.dspace.core.Context;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,17 +41,31 @@ public class ItemController extends Spring3CoreController {
 	}
 
 	@RequestMapping("/list")
-	public ModelAndView get(HttpServletRequest request) throws Exception {
+	public ModelAndView list(HttpServletRequest request) throws Exception {
 		Context context = UIUtil.obtainContext(request);
 		Iterator<Item> iterator = itemService.findAll(context);
 		return new ModelAndView("/item/list", "iterator", iterator);
 	}
 
+	@RequestMapping("/collection/list")
+	public ModelAndView list(@RequestParam String collectionId, HttpServletRequest request) throws Exception {
+		Context context = UIUtil.obtainContext(request);
+		Collection collection = collectionService.findByIdOrLegacyId(context, collectionId);
+		Iterator<Item> iterator = itemService.findAllByCollection(context, collection);
+		return new ModelAndView("/item/list", "iterator", iterator);
+	}
+
 	@Autowired
 	private ItemService itemService;
+	@Autowired
+	private CollectionService collectionService;
 
 	public void setItemService(ItemService itemService) {
 		this.itemService = itemService;
+	}
+
+	public void setCollectionService(CollectionService collectionService) {
+		this.collectionService = collectionService;
 	}
 
 }

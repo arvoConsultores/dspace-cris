@@ -7,7 +7,7 @@
 	<div class="navbar navbar-inverse" role="navigation">
 		
 			<div class="navbar-header">
-				<a class="navbar-brand" href="${IR_FULL_PATH}">
+				<a class="navbar-brand" href="${DSPACE_FULL_PATH}">
 					<img src="/jspui/image/DSpace-logo-line.svg" alt="<fmt:message key="logo.alt"/>" style="height: 42px;">
 					${webapp.mailTitle}
 				</a>
@@ -36,7 +36,7 @@
 			<ul class="nav navbar-nav navbar-right collapse" id="navbar-icons">
 				<c:if test="${empty userDetail}">
 					<li>
-						<a href="${IR_FULL_PATH}/mydspace">
+						<a href="${DSPACE_FULL_PATH}/mydspace">
 							<span><i class="fa fa-key"></i>&nbsp;<fmt:message key="button.login"/></span>
 						</a>
 					</li>

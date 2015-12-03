@@ -1,8 +1,15 @@
 package org.dspace.app.webui.controller;
 
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.List;
+
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.dspace.app.webui.util.UIUtil;
+import org.dspace.authorize.AuthorizeException;
 import org.dspace.content.Collection;
 import org.dspace.content.service.CollectionService;
 import org.dspace.core.Context;
@@ -28,6 +35,15 @@ public class CollectionController extends Spring3CoreController {
 		Context context = UIUtil.obtainContext(request);
 		Collection collection = collectionService.findByIdOrLegacyId(context, collectionId);
 		return new ModelAndView("collection/get", "command", collection);
+	}
+
+	@RequestMapping("/browse")
+	public ModelAndView browse(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException, SQLException, AuthorizeException, Exception {
+		Context context = UIUtil.obtainContext(request);
+		List<Collection> collections = collectionService.findAll(context);
+		request.setAttribute("collections", collections);
+		return new ModelAndView("/collection/browse");
 	}
 
 	@Autowired

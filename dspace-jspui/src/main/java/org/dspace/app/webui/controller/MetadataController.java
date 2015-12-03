@@ -13,11 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import it.cilea.core.spring.controller.Spring3CoreController;
 import it.cilea.core.widget.model.Widget;
 
 @Controller
 @RequestMapping("/metadata")
-public class MetadataController {
+public class MetadataController extends Spring3CoreController {
 
 	@ModelAttribute("command")
 	public Widget formBacking(@RequestParam String widgetClass, HttpServletRequest request) throws Exception {

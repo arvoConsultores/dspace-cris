@@ -1,5 +1,6 @@
 package it.cineca.surplus.ir.context;
 
+import org.dspace.authorize.service.AuthorizeService;
 import org.dspace.content.service.CollectionService;
 import org.dspace.content.service.CommunityService;
 import org.dspace.content.service.ItemService;
@@ -123,5 +124,9 @@ public class Surplus {
 
 	public MetadataFieldService getMetadataFieldService() {
 		return dspace.getServiceManager().getServiceByName("metadataFieldService", MetadataFieldService.class);
+	}
+
+	public AuthorizeService getAuthorizeService() {
+		return dspace.getServiceManager().getServiceByName("authorizeService", AuthorizeService.class);
 	}
 }

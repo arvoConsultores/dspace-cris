@@ -1,5 +1,7 @@
 package org.dspace.app.webui.controller;
 
+import java.util.Iterator;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.dspace.app.webui.util.UIUtil;
@@ -17,9 +19,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import it.cilea.core.spring.controller.Spring3CoreController;
+
 @Controller
 @RequestMapping("/item")
-public class ItemController {
+public class ItemController extends Spring3CoreController {
 
 	@RequestMapping("/show/itemId/{itemId}")
 	public ModelAndView show(@PathVariable String itemId, HttpServletRequest request) throws Exception {
@@ -45,6 +49,13 @@ public class ItemController {
 		WorkspaceItem wsi = workspaceItemService.create(context, collection, false);
 		Item item = wsi.getItem();
 		return new ModelAndView("redirect:/item/form.htm", "itemId", item.getID().toString());
+	}
+
+	@RequestMapping("/list")
+	public ModelAndView get(HttpServletRequest request) throws Exception {
+		Context context = UIUtil.obtainContext(request);
+		Iterator<Item> iterator = itemService.findAll(context);
+		return new ModelAndView("/item/list", "iterator", iterator);
 	}
 
 	@Autowired

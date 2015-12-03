@@ -10,14 +10,10 @@ import javax.validation.Valid;
 
 import org.apache.commons.lang3.StringUtils;
 import org.dspace.app.webui.util.UIUtil;
-import org.dspace.content.Collection;
 import org.dspace.content.Item;
 import org.dspace.content.MetadataField;
-import org.dspace.content.WorkspaceItem;
-import org.dspace.content.service.CollectionService;
 import org.dspace.content.service.ItemService;
 import org.dspace.content.service.MetadataFieldService;
-import org.dspace.content.service.WorkspaceItemService;
 import org.dspace.core.Context;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,6 +22,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import it.cilea.core.dto.MultipleChoice;
@@ -36,16 +33,12 @@ import it.cilea.core.spring.controller.Spring3CoreController;
 public class ItemFormController extends Spring3CoreController {
 
 	@ModelAttribute("command")
-	public Item formBacking(HttpServletRequest request) throws Exception {
+	public Item formBacking(@RequestParam String itemId, HttpServletRequest request) throws Exception {
 		Context context = UIUtil.obtainContext(request);
-		if (StringUtils.isNotBlank(request.getParameter("itemId")))
-			return itemService.findByIdOrLegacyId(context, request.getParameter("itemId"));
-		Collection collection = collectionService.findByIdOrLegacyId(context, request.getParameter("collectionId"));
-		WorkspaceItem wsi = workspaceItemService.create(context, collection, false);
-		return wsi.getItem();
+		return itemService.findByIdOrLegacyId(context, itemId);
 	}
 
-	@RequestMapping(value = { "**/form", "/form", "**/new", "/new" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "**/form", "/form" }, method = RequestMethod.GET)
 	public ModelAndView processGet(@ModelAttribute("command") Item item, HttpServletRequest request) {
 		// return new
 		// ModelAndView(getControllerLogic(request.getServletPath()).getViewName(),
@@ -53,7 +46,7 @@ public class ItemFormController extends Spring3CoreController {
 		return new ModelAndView("/item/form", "command", item);
 	}
 
-	@RequestMapping(value = { "**/form", "/form", "**/new", "/new" }, method = RequestMethod.POST)
+	@RequestMapping(value = { "**/form", "/form" }, method = RequestMethod.POST)
 	public ModelAndView processPost(@Valid @ModelAttribute("command") Item item, BindingResult result,
 			HttpServletRequest request) throws Exception {
 		if (request.getParameter("cancel") != null)
@@ -122,10 +115,6 @@ public class ItemFormController extends Spring3CoreController {
 	}
 
 	@Autowired
-	private CollectionService collectionService;
-	@Autowired
-	private WorkspaceItemService workspaceItemService;
-	@Autowired
 	private ItemService itemService;
 	@Autowired
 	private MetadataFieldService metadataFieldService;
@@ -138,11 +127,4 @@ public class ItemFormController extends Spring3CoreController {
 		this.metadataFieldService = metadataFieldService;
 	}
 
-	public void setCollectionService(CollectionService collectionService) {
-		this.collectionService = collectionService;
-	}
-
-	public void setWorkspaceItemService(WorkspaceItemService workspaceItemService) {
-		this.workspaceItemService = workspaceItemService;
-	}
 }

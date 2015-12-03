@@ -58,6 +58,7 @@
 	<bean id="searchStartupListenerWorker" class="it.cilea.core.search.listener.SearchStartupListenerWorker" />
 	<bean id="widgetStartupListenerWorker" class="it.cilea.core.widget.listener.WidgetStartupListenerWorker" />
 	<bean id="treeNodeStartupListenerWorker" class="it.cilea.core.menu.listener.TreeNodeStartupListenerWorker" />
+	<bean id="dspaceFrameworkListenerWorker" class="org.dspace.app.webui.listener.DspaceFrameworkStartupListenerWorker" />
 	
 	
  	<bean id="searchBuilderTemplate" factory-bean="surplus" factory-method="getSearchBuilderTemplate" />
@@ -68,6 +69,7 @@
  	<bean id="itemService" factory-bean="surplus" factory-method="getItemService" />
  	<bean id="metadataFieldService" factory-bean="surplus" factory-method="getMetadataFieldService" />
  	<bean id="authorizeService" factory-bean="surplus" factory-method="getAuthorizeService" />
+ 	<bean id="authenticationService" factory-bean="surplus" factory-method="getAuthenticationService" />
  	
  	<bean id="breadcrumbsFilter" class="it.cilea.core.breadcrumb.filter.InMemoryBreadcrumbFilter">
 		<property name="excludeUrl">

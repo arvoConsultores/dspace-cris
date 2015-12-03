@@ -5,12 +5,8 @@ import java.util.Iterator;
 import javax.servlet.http.HttpServletRequest;
 
 import org.dspace.app.webui.util.UIUtil;
-import org.dspace.content.Collection;
 import org.dspace.content.Item;
-import org.dspace.content.WorkspaceItem;
-import org.dspace.content.service.CollectionService;
 import org.dspace.content.service.ItemService;
-import org.dspace.content.service.WorkspaceItemService;
 import org.dspace.core.Context;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -42,15 +38,6 @@ public class ItemController extends Spring3CoreController {
 		return new ModelAndView("item/get", "command", item);
 	}
 
-	@RequestMapping("/new")
-	public ModelAndView newItem(@RequestParam String collectionId, HttpServletRequest request) throws Exception {
-		Context context = UIUtil.obtainContext(request);
-		Collection collection = collectionService.findByIdOrLegacyId(context, collectionId);
-		WorkspaceItem wsi = workspaceItemService.create(context, collection, false);
-		Item item = wsi.getItem();
-		return new ModelAndView("redirect:/item/form.htm", "itemId", item.getID().toString());
-	}
-
 	@RequestMapping("/list")
 	public ModelAndView get(HttpServletRequest request) throws Exception {
 		Context context = UIUtil.obtainContext(request);
@@ -60,20 +47,9 @@ public class ItemController extends Spring3CoreController {
 
 	@Autowired
 	private ItemService itemService;
-	@Autowired
-	private CollectionService collectionService;
-	@Autowired
-	private WorkspaceItemService workspaceItemService;
 
 	public void setItemService(ItemService itemService) {
 		this.itemService = itemService;
 	}
 
-	public void setCollectionService(CollectionService collectionService) {
-		this.collectionService = collectionService;
-	}
-
-	public void setWorkspaceItemService(WorkspaceItemService workspaceItemService) {
-		this.workspaceItemService = workspaceItemService;
-	}
 }

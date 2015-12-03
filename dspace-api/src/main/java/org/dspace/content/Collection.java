@@ -7,16 +7,31 @@
  */
 package org.dspace.content;
 
-import org.dspace.content.factory.ContentServiceFactory;
-import org.dspace.content.service.CollectionService;
-import org.dspace.core.*;
-import org.dspace.eperson.Group;
-import org.hibernate.proxy.HibernateProxyHelper;
-
-import javax.persistence.*;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+import org.dspace.content.factory.ContentServiceFactory;
+import org.dspace.content.service.CollectionService;
+import org.dspace.core.Constants;
+import org.dspace.core.Context;
+import org.dspace.eperson.Group;
+import org.hibernate.proxy.HibernateProxyHelper;
+
+import com.hp.hpl.jena.sparql.function.library.uuid;
+
+import it.cilea.core.model.Selectable;
 
 /**
  * Class representing a collection.
@@ -34,7 +49,7 @@ import java.util.List;
  */
 @Entity
 @Table(name="collection")
-public class Collection extends DSpaceObject implements DSpaceObjectLegacySupport
+public class Collection extends DSpaceObject implements DSpaceObjectLegacySupport,Selectable
 {
 
     @Column(name="collection_id", insertable = false, updatable = false)
@@ -334,6 +349,15 @@ public class Collection extends DSpaceObject implements DSpaceObjectLegacySuppor
         {
             collectionService = ContentServiceFactory.getInstance().getCollectionService();
         }
-        return collectionService;
+       return collectionService;
+    }
+    
+    @Override
+    public String getIdentifyingValue() {
+    	return id.toString();
+    }
+    @Override
+    public String getDisplayValue() {
+    	return getMetadataFieldPlaceMap().get("dc_title_1");
     }
 }

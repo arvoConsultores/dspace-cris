@@ -25,6 +25,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
 
 <%@ page import="java.io.File" %>
@@ -68,7 +69,7 @@
 	<div class="jumbotron">
         <%= topNews %>
 	</div>
-
+<c:redirect url="/desktop.htm?CLEAR"/>
 <div class="row">
 <%
 if (submissions != null && submissions.count() > 0)

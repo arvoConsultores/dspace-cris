@@ -11,12 +11,12 @@
 	<http auto-config="true">
 		<intercept-url pattern="/admin**" access="ROLE_USER" />
 		<form-login 
-		    login-page="/login" 
+		    login-page="/login.htm" 
 		    default-target-url="/welcome" 
-			authentication-failure-url="/login?error" 
+			authentication-failure-url="/login.htm?error" 
 			username-parameter="username"
 			password-parameter="password" />
-		<logout logout-success-url="/login?logout" />
+		<logout logout-success-url="/login.htm?logout" />
 		<!-- enable csrf protection 
 		<csrf/>-->
 	</http>

@@ -19,9 +19,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import it.cilea.core.spring.controller.Spring3CoreController;
+
 @Controller
 @RequestMapping("/handletmp")
-public class HandleController {
+public class HandleController extends Spring3CoreController {
 
 	@RequestMapping("/get")
 	public ModelAndView get(@RequestParam String handle, HttpServletRequest request) throws Exception {

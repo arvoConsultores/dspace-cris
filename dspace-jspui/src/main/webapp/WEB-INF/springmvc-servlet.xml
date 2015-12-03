@@ -32,6 +32,8 @@
     </bean>
 
 	<context:component-scan base-package="it.cilea.core.view.controller"/>
+	<context:component-scan base-package="it.cilea.core.search.controller"/>
+	<context:component-scan base-package="it.cilea.core.menu.controller"/>
 	<context:component-scan base-package="org.dspace.app.webui.controller"/>
 	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"/>
 	<!--

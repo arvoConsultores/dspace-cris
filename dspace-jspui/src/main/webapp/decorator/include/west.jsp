@@ -28,7 +28,7 @@
 					</div>
 				</div>
 			</div>
-			<menu:navbarMenu item="${identifierTreeMap['/module.menu']}" divId="sidebar" top="false"></menu:navbarMenu>
 		</c:if>
+		<menu:navbarMenu item="${identifierTreeMap['/module.menu']}" divId="sidebar" top="false"></menu:navbarMenu>
 	</div>
 </div>

@@ -1,0 +1,46 @@
+<xml>
+	<!--  this is just an example on how to define a new view builder that show a list of collection -->
+	<ViewBuilder>
+		<viewIdentifier>/collection/browse</viewIdentifier>
+		<viewName>viewBuilder/list</viewName>
+		<versionDate>2015/05/19 00:00:00.000</versionDate>
+		<versionInfo>1.0</versionInfo>
+		<Relations>
+			<Relation><widgetIdentifier>/collection/browse/table.widget</widgetIdentifier><ordering>1</ordering><layoutMode>div</layoutMode></Relation>
+		</Relations>
+	</ViewBuilder>
+	
+	<Widget>
+		<widgetIdentifier>/collection/browse/table.widget</widgetIdentifier>
+		<discriminator>displayTag:table</discriminator>
+		<Parameters>
+			<Parameter><discriminator>IS_FRAGMENT_TABLE</discriminator><value>false</value></Parameter>
+		</Parameters>
+		<Links>
+			<Link><childIdentifier>/collection/browse/table/column/id.widget</childIdentifier></Link>
+			<Link><childIdentifier>/collection/browse/table/column/description.widget</childIdentifier></Link>
+		</Links>
+	</Widget>
+	
+	<Widget>
+		<widgetIdentifier>/collection/browse/table/column/id.widget</widgetIdentifier>
+		<discriminator>displayTag:column</discriminator>
+		<modelAttributeName>ID</modelAttributeName>
+		<Dictionaries><Dictionary><discriminator>LABEL</discriminator><i18nCustomIdentifier>label.id</i18nCustomIdentifier></Dictionary></Dictionaries>
+		<Parameters>
+			<Parameter><discriminator>STYLE</discriminator><value>width:5%;</value></Parameter>
+			<Parameter><discriminator>SORTABLE</discriminator><value>true</value></Parameter>
+			<Parameter><discriminator>SORT_PROPERTY</discriminator><value>organizationUnit.id</value></Parameter>
+		</Parameters>
+	</Widget>
+	<Widget>
+		<widgetIdentifier>/collection/browse/table/column/description.widget</widgetIdentifier>
+		<discriminator>displayTag:column</discriminator>
+		<modelAttributeName>metadataFieldPlaceMap.dc_title_1</modelAttributeName>
+		<Dictionaries><Dictionary><discriminator>LABEL</discriminator><i18nCustomIdentifier>label.title</i18nCustomIdentifier></Dictionary></Dictionaries>
+		<Parameters>
+			<Parameter><discriminator>STYLE</discriminator><value>width:70%;</value></Parameter>
+			<Parameter><discriminator>SORTABLE</discriminator><value>false</value></Parameter>
+		</Parameters>
+	</Widget>
+</xml>

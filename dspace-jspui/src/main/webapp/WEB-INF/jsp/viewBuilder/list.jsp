@@ -1,0 +1,9 @@
+<%@ include file="/common/taglib.jsp"%>
+<c:set var="currentViewBuilder" value="${view:get(cinecaRealViewName)}"/>
+<c:set var="commandObject" value="${command}" scope="request" />
+<c:url value="${actionUrl}" var="actionUrl"/>
+<title><fmt:message key="${currentViewBuilder.titleKey}"/></title>
+<div class="page-header"><div class="page-title"><h3><fmt:message key="${currentViewBuilder.titleKey}"/></h3></div></div>
+<div class="form-horizontal">
+	<view:viewBuilder identifier="${cinecaRealViewName}"/>
+</div>

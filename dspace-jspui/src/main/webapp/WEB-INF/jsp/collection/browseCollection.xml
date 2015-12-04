@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <xml>
 	<!--  this is just an example on how to define a new view builder that show a list of collection -->
 	<ViewBuilder>

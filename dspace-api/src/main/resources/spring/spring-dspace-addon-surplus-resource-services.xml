@@ -61,13 +61,7 @@
 	
 	<bean id="messageUtil" class="it.cilea.core.spring.util.MessageUtil" />
 	
-	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-		<property name="host" value="${MAIL_HOST}" />
-		<property name="javaMailProperties">
-			<props>
-			</props>
-		</property>
-	</bean>
+
 	
 	<bean id="controllerLogicFactory" class="it.cilea.core.spring.factory.impl.ControllerLogicFactoryDefaultImpl"/>
 	

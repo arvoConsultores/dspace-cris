@@ -21,12 +21,16 @@
 
 	<!-- Runtime and Compile Time dependencies for DSpace. -->
 	<build>
-		<resources>
+		<filters>
+      		<filter>${root.basedir}/target/build.properties</filter>
+    	</filters>
+		<resources>		
 			<resource>
 				<directory>src/main/resources</directory>
 				<includes>
 					<include>maven.properties</include>
 					<include>scm.properties</include>
+					<include>settings.properties</include>
 				</includes>
 				<filtering>true</filtering>
 			</resource>
@@ -35,6 +39,7 @@
 				<excludes>
 					<exclude>maven.properties</exclude>
 					<exclude>scm.properties</exclude>
+					<exclude>settings.properties</exclude>
 				</excludes>
 				<filtering>false</filtering>
 			</resource>

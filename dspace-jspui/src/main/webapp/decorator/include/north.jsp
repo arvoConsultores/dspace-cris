@@ -12,20 +12,16 @@
 					${webapp.mailTitle}
 				</a>
 				<c:if test="${showNavButtons}">
-					<c:if test="${not empty userDetail}">
-						<a class="sidebar-toggle" title="<fmt:message key="jsp.navbar.open-close"/>"><i class="icon-paragraph-justify2"></i></a>
-					</c:if>
+					<a class="sidebar-toggle" title="<fmt:message key="jsp.navbar.open-close"/>"><i class="icon-paragraph-justify2"></i></a>
 					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-icons">
 						<span class="sr-only"><fmt:message key="layout.toggle.right.icons"/></span><i class="icon-grid"></i>
 					</button>
-					<c:if test="${not empty userDetail}">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
-							<span class="sr-only"><fmt:message key="layout.toggle.menu"/></span><i class="icon-paragraph-justify2"></i>
-						</button>
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar">
-							<span class="sr-only"><fmt:message key="layout.toggle.sidebar"/></span><i class="icon-indent-decrease"></i>
-						</button>
-					</c:if>
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+						<span class="sr-only"><fmt:message key="layout.toggle.menu"/></span><i class="icon-paragraph-justify2"></i>
+					</button>
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar">
+						<span class="sr-only"><fmt:message key="layout.toggle.sidebar"/></span><i class="icon-indent-decrease"></i>
+					</button>
 				</c:if>
 			</div>
 			<c:if test="${showTopMenu}">

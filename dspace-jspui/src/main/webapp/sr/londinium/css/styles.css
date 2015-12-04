@@ -1140,7 +1140,7 @@ body.boxed {
 /*===== Sidebar toggle button =====*/
 .sidebar-toggle {
   position: absolute;
-  right: 0;
+  right: 25;
   top: 12px;
   line-height: 1;
   color: #fff;

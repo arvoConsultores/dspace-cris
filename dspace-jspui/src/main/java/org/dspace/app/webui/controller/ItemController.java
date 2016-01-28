@@ -29,7 +29,7 @@ public class ItemController extends Spring3CoreController {
 	}
 
 	@RequestMapping("/get")
-	public ModelAndView get(@RequestParam String itemId, HttpServletRequest request) throws Exception {
+	public ModelAndView getItem(@RequestParam String itemId, HttpServletRequest request) throws Exception {
 		return modelAndViewGet(itemId, itemService, request);
 	}
 

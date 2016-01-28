@@ -63,7 +63,7 @@
 	
 
 	
-	<bean id="controllerLogicFactory" class="it.cilea.core.spring.factory.impl.ControllerLogicFactoryDefaultImpl"/>
+	<bean id="controllerLogicFactory" class="it.cilea.core.view.factory.impl.ViewControllerLogicFactory"/>
 	
 
 </beans>

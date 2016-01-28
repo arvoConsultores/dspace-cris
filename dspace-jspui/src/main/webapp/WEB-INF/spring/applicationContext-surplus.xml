@@ -38,6 +38,8 @@
 	<bean id="dynamicMessageSource" factory-bean="surplus" factory-method="getDatabaseReloadableMessageSource" />
 	
 	<bean id="staticMessageSource" factory-bean="surplus" factory-method="getStaticMessageSource" />
+	
+	<bean id="messageSource" factory-bean="surplus" factory-method="getMessageSource" />
 
 	<bean id="messageUtilConstantStartupListenerWorker"
 		class="it.cilea.core.spring.listener.MessageUtilConstantStartupListenerWorker">
@@ -88,5 +90,6 @@
 			</set>
 		</property>
 	</bean>
+ 	
  	
 </beans>

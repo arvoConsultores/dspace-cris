@@ -32,4 +32,33 @@
 			</ul>
 		</li>
 	</ul>
+	<script type="text/javascript">
+		var languageChangeArray = [ 'jspui'];
+		var languageChangeMap=new Object();
+		$.each(languageChangeArray, function(index, value) { 
+			languageChangeMap[value]=false;
+		});
+		function changeLanguage(language) {
+			$('body').append('<div class="overlay"><div class="opacity"></div><i class="icon-spinner2 spin"></i></div>');
+			$('.overlay').fadeIn(150);
+			$.each(languageChangeMap, function(module, value) { 
+				$.ajax({
+					url: ((module.substring(0, 1) == "/") ? "" : "/") +module+"/language/change.ajax",
+					dataType: "text",		
+					contentType: "application/x-www-form-urlencoded;charset=UTF-8",													
+					data: {
+						changeLocale: language,
+						RAND: Math.random(9999)
+					},
+					success: function(data,extStatus, errorThrown) {
+						languageChangeMap[module]=true;
+					},
+					error: function(data,extStatus, errorThrown) {
+					}
+				});
+			});
+			checkModuleCalls(languageChangeMap);
+			window.setTimeout("location.reload();",2000);
+		}
+	</script>
 </div>

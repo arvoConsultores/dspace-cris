@@ -31,6 +31,7 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+	<context:component-scan base-package="it.cilea.core.i18n.controller"/>
 	<context:component-scan base-package="it.cilea.core.view.controller"/>
 	<context:component-scan base-package="it.cilea.core.search.controller"/>
 	<context:component-scan base-package="it.cilea.core.menu.controller"/>
@@ -46,6 +47,9 @@
     	<property name="location" value="classpath:settings.properties" />
 	</bean>
 	<mvc:interceptors><bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor" p:paramName="changeLocale" /></mvc:interceptors>
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+		<property name="defaultLocale" value="en" />
+	</bean>
 	<bean id="customEditorList"	class="java.util.ArrayList">
 		<constructor-arg index="0">
 			<list>						

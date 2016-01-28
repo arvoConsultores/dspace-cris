@@ -150,6 +150,15 @@ public class DspaceFrameworkController extends Spring3CoreController {
 			treeNodeService.saveOrUpdate(treeNode);
 			map.put(treeNode.getIdentifier(), treeNode);
 		}
+		if (!map.containsKey("/module/configuration/i18n/reload.menu")) {
+			TreeNode treeNode = new TreeNode();
+			treeNode.setIdentifier("/module/configuration/i18n/reload.menu");
+			treeNode.setBrotherOrder(3);
+			treeNode.setTreeParentNodeId(map.get("/module/configuration.menu").getId());
+			treeNode.setLink("/${DSPACE_MODULE_NAME}/i18n/reload.htm?CLEAR");
+			treeNodeService.saveOrUpdate(treeNode);
+			map.put(treeNode.getIdentifier(), treeNode);
+		}
 		if (!map.containsKey("/module/configuration/cms.menu")) {
 			TreeNode treeNode = new TreeNode();
 			treeNode.setIdentifier("/module/configuration/cms.menu");

@@ -16,6 +16,7 @@ import java.util.Map;
 import org.apache.cocoon.environment.ObjectModelHelper;
 import org.apache.cocoon.environment.Request;
 import org.apache.cocoon.util.HashUtil;
+import org.apache.commons.lang.StringUtils;
 import org.apache.excalibur.source.SourceValidity;
 import org.apache.log4j.Logger;
 import org.dspace.app.xmlui.cocoon.AbstractDSpaceTransformer;
@@ -34,13 +35,16 @@ import org.dspace.app.xmlui.wing.element.Table;
 import org.dspace.app.xmlui.wing.element.Row;
 import org.dspace.app.xmlui.wing.element.Cell;
 import org.dspace.authorize.AuthorizeException;
+import org.dspace.authorize.AuthorizeManager;
 import org.dspace.content.Collection;
 import org.dspace.content.Community;
 import org.dspace.content.DSpaceObject;
 import org.dspace.content.Item;
+import org.dspace.core.ConfigurationManager;
 import org.dspace.core.Context;
 import org.dspace.core.LogManager;
 import org.dspace.core.Constants;
+import org.dspace.eperson.Group;
 import org.dspace.handle.HandleManager;
 import org.dspace.search.DSQuery;
 import org.dspace.search.QueryArgs;
@@ -450,6 +454,53 @@ public abstract class AbstractSearch extends AbstractDSpaceTransformer
         }
         else
         {
+            try {
+        	String comunidadesColeccionesPrivadas=ConfigurationManager.getProperty("comunidades.colecciones.privadas");
+
+        	boolean isSystemAdmin = AuthorizeManager.isAdmin(this.context);
+        	Group[] groups;
+        	groups = Group.allMemberGroups(this.context, eperson);
+
+        	String configAllowedGroups=ConfigurationManager.getProperty("grupos.busqueda.completa");
+        	boolean allowed=false;
+        	if(isSystemAdmin){
+        	    allowed=true;
+        	}else if(StringUtils.isNotEmpty(configAllowedGroups)){
+        	    String[] allowedGroups=configAllowedGroups.split(",");
+
+        	    for(int i=0;i<allowedGroups.length;i++){
+        		for(int j=0;j<groups.length;j++){
+        		    if(allowedGroups[i].equalsIgnoreCase(groups[j].getName())){
+        			allowed=true;
+        		    }
+        		}
+        	    }
+        	}
+        	if(allowed){
+        	    // Se busca en todo.
+        	}else{
+        	    StringBuffer locations=new StringBuffer();
+        	    if(StringUtils.isNotBlank(comunidadesColeccionesPrivadas)){
+        		String[] privs=comunidadesColeccionesPrivadas.split(",");
+        		for(int i=0;i<privs.length;i++){
+        		    DSpaceObject dso = HandleManager.resolveToObject(context, privs[i]);
+        		    if(dso instanceof Community){
+        			String location = "m" + (dso.getID());
+        			locations.append(" - location:\"" + location + "\"");
+        		    }
+        		    if(dso instanceof Collection){
+        			String location = "l" + (dso.getID());
+        			locations.append(" - location:\"" + location + "\"");
+        		    }
+        		}
+        	    }else{
+        		//Mostrar error
+        	    }
+        	    queryArgs.setQuery("(" + queryArgs.getQuery() + ")"+ locations );
+        	}
+            } catch (SQLException e) {
+        	e.printStackTrace();
+            }
             qResults = DSQuery.doQuery(context, queryArgs);
         }
 

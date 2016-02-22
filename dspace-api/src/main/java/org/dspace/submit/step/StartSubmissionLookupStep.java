@@ -119,6 +119,9 @@ public class StartSubmissionLookupStep extends AbstractProcessingStep
     {
         // First we find the collection which was selected
         int id = Util.getIntParameter(request, "collectionid");
+        if(request.getAttribute("collectionid")!=null){
+            id=(Integer) request.getAttribute("collectionid");
+        }
         String titolo = request.getParameter("search_title");
         String date = request.getParameter("search_year");
         String autori = request.getParameter("search_authors");

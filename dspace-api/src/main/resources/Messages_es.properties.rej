@@ -1,0 +1,61 @@
+@@ -2383,6 +2383,4 @@
+ org.dspace.app.webui.jsptag.ItemTag.viewlicence                                 = Visualizar la licencia
+ 
+-
+-
+ jsp.accesibilidad.titulo = Accesibilidad
+ jsp.mapaWeb.titulo = Mapa Web
+@@ -3287,4 +3285,5 @@
+ jsp.submit.progressbar.upload                                   = Subir
+ jsp.submit.progressbar.verify                                   = Verificar
++jsp.submit.progressbar.revision                                 = Revisar
+ jsp.controlledvocabulary.controlledvocabulary.help-link         = (Ayuda sobre Entradas normalizadas ...)
+ 
+@@ -3406,3 +3405,46 @@
+ jsp.submit.show-license.info2                                   = <strong>No conceder la licencia no borrar\u00e1 su env\u00edo.</strong> Su \u00edtem permanecer\u00e1 en su p\u00e1gina "Mi DSpace". Usted puede borrar el \u00edtem del sistema o mostrar su acuerdo con la licencia m\u00e1s tarde. 
+ jsp.submit.show-license.notgrant.button                         = No acepto la licencia 
+-jsp.submit.show-license.title                                   = Env\u00edo: aceptar la licencia de distribuci\u00f3n 
++jsp.submit.show-license.title                                   = Env\u00edo: aceptar la licencia de distribuci\u00f3n 
++
++########################################################################################
++jsp.submit.progressbar.revisar          = Revisi\u00f3n
++jsp.submit.progressbar.juicio           = Juicio
++jsp.submit.progressbar.invitar          = Invitar
++
++jsp.display-item.solicitarJuicio		= Solicitar juicio
++jsp.display-item.solicitarRevision		= Solicitar revisi\u00f3n
++
++jsp.submit.invitar.title		= Invitar a revisores
++jsp.submit.invitar.info3		= <p>Mediante esta pantalla, Vd. como autor del art\u00edculo selecciona a expertos/as para revisar su manuscrito.</p><p>Revisar abiertamente manuscritos publicados en repositorios antes (en estado preprint), o incluso despu\u00e9s de su publicaci\u00f3n en revistas acad\u00e9micas, le ayudar\u00e1 a abrir nuevas v\u00edas de colaboraci\u00f3n con otros cient\u00edficos.</p><p>Puede saltar este paso pulsando el bot\u00f3n siguiente.</p>
++
++jsp.submit.revision.title		= Revisi\u00f3n
++jsp.submit.revision.info3		= <p>Escriba en el espacio debajo su opini\u00f3n sobre el art\u00edcculo incluyendo todos los detalles necesarios para ayudar los autores mejorar su contribuci\u00f3n. Procure ser constructivo.</p><p>Le recordamos que su contribuci\u00f3n va a ser publicada junto con el art\u00edcculo original bajo una licencia CCBY que permite su uso p\u00Fablico, siempre que se reconozca su autor\u00edca (mediante una cita del formato: Revisor. Fecha. T\u00edctulo del art\u00edcculo original [Rev]. Autores del art\u00edcculo original. handle/url).</p>
++
++jsp.submit.juicio.title			= Juicio
++jsp.submit.juicio.info3			= <p>Escriba en el espacio debajo su juicio sobre la revisi\u00f3n incluyendo todos los detalles necesarios.</p><p>Le recordamos que su contribuci\u00f3n va a ser publicada junto con las revisiones y el art\u00edcculo original bajo una licencia CCBY que permite su uso p\u00Fablico, siempre que se reconozca su autor\u00edca (mediante una cita del formato: Revisor. Fecha. T\u00edctulo del art\u00edcculo original [Rev]. Autores del art\u00edcculo original. handle/url).</p>
++
++jsp.revisionRequest.title				= Solicitar revisi\u00f3n
++jsp.revisionRequest.info3				= <p>Mediante esta pantalla Vd. solicita revisar el art\u00edcculo publicado en el repositorio.</p><p>Revisar abiertamente manuscritos publicados en repositorios antes (en estado preprint), o incluso despu\u00e9s de su publicaci\u00f3n en revistas acad\u00e9micas, ayuda a los autores a mejorar sus contribuciones y abre nuevas v\u00edas de colaboraci\u00f3n entre cient\u00edficos. Adem\u00e1s, en este modelo de revisi\u00f3n abierta, el revisor es reconocido por su contribuci\u00f3n, ya que su revisi\u00f3n se convierte en un \u00edtem citable que puede incluir en su curr\u00edcculum acad\u00e9mico. Para obtener m\u00e1s informaci\u00f3n sobre este modelo innovador que est\u00e1 siendo implementado por primera vez a nivel internacional desde el repositorio del Instituto Español de Oceanograf\u00edca puede leer el art\u00edculo: Defining and Characterizing Open Peer Review: A review of the literature</p><p>Url: <a href="http://pdxscholar.library.pdx.edu/cgi/viewcontent.cgi?article=1000&amp;context=ulib_fac" target="_blank">http://pdxscholar.library.pdx.edu/cgi/viewcontent.cgi?article=1000&amp;context=ulib_fac</a></p><p>Introduciendo su email, recibir\u00e1 un mensaje que contendr\u00e1 un enlace para efectuar la revisi\u00f3n solicitada.</p>
++jsp.revisionRequest.info5				= Introduzca su correo y se le enviar\u00e1 un enlace para realizar la revisi\u00f3n.
++jsp.revisionRequest.email.field			= Direcci\u00f3n de correo electr\u00f3nico: 
++jsp.revisionRequest.request.button		= Solicitar Revisi\u00f3n
++jsp.revisionRequest.missing.email		= Debe introducir una direcci\u00f3n de correo electr\u00f3nico
++jsp.revisionRequest.forbiden.email		= Esa direcci\u00f3n de correo no tiene permitida la solicitud de revisiones
++jsp.revisionRequest.error.email			= El correo electr\u00f3nico introducido no es correcto
++jsp.revisionRequest.mail.send.title		= Resultado de solicitud
++jsp.revisionRequest.mail.send			= Email con la solicitud enviada. Revise su correo electr\u00f3nico.
++
++jsp.juicioRequest.title					= Solicitar juicio
++jsp.juicioRequest.info3				  	= informaci\u00f3n sobre la solicitud de juicio
++jsp.juicioRequest.info5					= Introduzca su correo y se le enviar\u00e1 un enlace para realizar el juicio.
++jsp.juicioRequest.email.field			= Direcci\u00f3n de correo electr\u00f3nico: 
++jsp.juicioRequest.request.button		= Solicitar Juicio
++jsp.juicioRequest.missing.email			= Debe introducir una direcci\u00f3n de correo electr\u00f3nico
++jsp.juicioRequest.forbiden.email		= Esa direcci\u00f3n de correo no tiene permitida la solicitud de juicios
++jsp.juicioRequest.error.email			= El correo electr\u00f3nico introducido no es correcto
++jsp.juicioRequest.mail.send.title		= Resultado de solicitud
++jsp.juicioRequest.mail.send				= Email con la solicitud enviada. Revise su correo electr\u00f3nico.
++
++org.dspace.app.webui.jsptag.ItemTag.relation.isrelatedtoItem     = Items relacionados
++org.dspace.app.webui.jsptag.ItemTag.relation.isrelatedtoRevision = Revisiones relacionadas
++org.dspace.app.webui.jsptag.ItemTag.relation.isrelatedtoJuicio	 = Juicios relacionados

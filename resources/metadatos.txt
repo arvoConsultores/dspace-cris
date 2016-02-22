@@ -1,0 +1,1 @@
+./dspace dsrun org.dspace.administer.MetadataImporter -f ../config/registries/openaire-types.xml -u

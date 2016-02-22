@@ -426,5 +426,11 @@
             <class>org.dspace.authority.indexer.AuthorityIndexClient</class>
         </step>
     </command>
-
+    <command>
+        <name>reputation-calculation</name>
+        <description>Recalculate the reputation of authors and publications</description>
+        <step>
+            <class>es.arvo.openaire.reputation.ReputationCalculator</class>
+        </step>
+    </command>
 </commands>

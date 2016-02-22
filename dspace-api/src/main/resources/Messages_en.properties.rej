@@ -1,0 +1,53 @@
+@@ -1543,4 +1543,6 @@
+ org.dspace.app.webui.jsptag.ItemTag.view                                        = View/Open
+ org.dspace.app.webui.jsptag.ItemTag.viewlicence                                 = View License
++org.dspace.app.webui.jsptag.ItemTag.relation.isrelatedtoItem                    = Review of
++org.dspace.app.webui.jsptag.ItemTag.relation.isrelatedtoRevision				= Reviews
+ org.dspace.app.webui.jsptag.SelectEPersonTag.removeSelected                     = Remove Selected
+ org.dspace.app.webui.jsptag.SelectEPersonTag.selectPeople                       = Select E-people...
+@@ -4298,3 +4300,44 @@
+ jsp.layaot.navbar.usuario.csic.alt = Access for users of CSIC
+ 
+-########################################################################################
++########################################################################################
++jsp.submit.progressbar.revisar          = Review
++jsp.submit.progressbar.juicio           = Judgement
++jsp.submit.progressbar.invitar          = Invite
++
++jsp.display-item.solicitarJuicio		= Request judgement
++jsp.display-item.solicitarRevision		= Request review
++
++jsp.submit.invitar.title		= Invite reviewers
++jsp.submit.invitar.info3		= <p>Through this you screen, you, as author, asked an expert peer to review your manuscript.</p><p>By openly reviewing scientific manuscripts published in repositories before (preprints), or even after their publication in academic journals, you will promote new ways of constructive academic collaboration.</p><p>You can skip this step by pressing the next button.</p>
++
++jsp.submit.revision.title		= Review
++jsp.submit.revision.info3		= <p>Please provide below your detailed opinion about the article, including all necessary information to help its authors improve their work. Try to be constructive in your criticism.</p><p>We remind you that your contribution will be published along the original article under a CCBY license that allows its public use with proper attribution (your authorship will be attributed through a citation of the form: Reviewer. Date. Article’s title [Rev]. Article authors. handle/url.)</p>
++
++jsp.submit.juicio.title			= Judgement
++jsp.submit.juicio.info3			= <p>Please provide below your judgement about the review, including all necessary information. Try to be constructive in your criticism.</p><p>We remind you that your contribution will be published along the reviews and the original article under a CCBY license that allows its public use with proper attribution (your authorship will be attributed through a citation of the form: Reviewer. Date. Article’s title [Rev]. Article authors. handle/url.)</p>
++
++jsp.revisionRequest.title				= Request review
++jsp.revisionRequest.info3				= <p>Through this you screen, you asked to review the article published in the Spanish Oceanographic Institute repository</p><p>By openly reviewing scientific manuscripts published in repositories before (preprints), or even after their publication in academic journals, you help their authors improve their contributions and promote new ways of constructive academic collaboration. Importantly, this peer review model offers reviewers recognition for their contributions, since reviews become citable items that can be included in academic records. For more information regarding this innovative peer review model that is being implemented for the first time by the Spanish Oceanographic Institute, we invite you to read the following article: Defining and Characterizing Open Peer Review: A review of the literature</p><p>Url: <a href="http://pdxscholar.library.pdx.edu/cgi/viewcontent.cgi?article=1000&amp;context=ulib_fac" target="_blank">http://pdxscholar.library.pdx.edu/cgi/viewcontent.cgi?article=1000&amp;context=ulib_fac</a></p><p>By entering your email, you will receive a message containing a link for the requested review.</p>
++jsp.revisionRequest.info5				= Insert an email and a link will be sent to make the review
++jsp.revisionRequest.email.field			= Email: 
++jsp.revisionRequest.request.button		= Request revision
++jsp.revisionRequest.missing.email		= You must insert a email
++jsp.revisionRequest.forbiden.email		= This email is not allowed to request a review
++jsp.revisionRequest.error.email			= The email is not correct
++jsp.revisionRequest.mail.send.title		= Request result
++jsp.revisionRequest.mail.send			= Email send. Check your email account
++
++jsp.juicioRequest.title					= Request judgement 
++jsp.juicioRequest.info3				  	= Information of judgement request
++jsp.juicioRequest.info5					= Insert an email and a link will be sent to make the judgement
++jsp.juicioRequest.email.field			= Email: 
++jsp.juicioRequest.request.button		= Judgement request
++jsp.juicioRequest.missing.email			= You must insert a email
++jsp.juicioRequest.forbiden.email		= This email is not allowed to request a review
++jsp.juicioRequest.error.email			= The email is not correct
++jsp.juicioRequest.mail.send.title		= Request result
++jsp.juicioRequest.mail.send				= Email send. Check your email account
++
++org.dspace.app.webui.jsptag.ItemTag.relation.isrelatedtoItem     = Related items
++org.dspace.app.webui.jsptag.ItemTag.relation.isrelatedtoRevision = Related reviews
++org.dspace.app.webui.jsptag.ItemTag.relation.isrelatedtoJuicio	 = Related judgements

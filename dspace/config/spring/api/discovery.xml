@@ -268,6 +268,8 @@
 				<ref bean="searchFilterObjectPeople" />
 				<ref bean="searchFilterObjectOU" />
 				<ref bean="searchFilterObjectType" />
+				<ref bean="searchFilterReputacion" />
+				<ref bean="searchFilterIsRevised" />
 			</list>
 		</property>
 		<!--The sort filters for the discovery search -->
@@ -282,7 +284,8 @@
 						<ref bean="sortDateIssued" />
 						<ref bean="sortRPName" />
 						<ref bean="sortPJTitle"/>
-						<ref bean="sortOUName"/>						
+						<ref bean="sortOUName"/>	
+						<ref bean="sortReputacion" />					
 					</list>
 				</property>
 			</bean>
@@ -397,6 +400,8 @@
 				<ref bean="searchFilterObjectType" />
 				<ref bean="searchFilterObjectPeople" />
 				<ref bean="searchFilterObjectOU" />
+				<ref bean="searchFilterReputacion" />
+				<ref bean="searchFilterIsRevised" />				
 			</list>
 		</property>
 		<!--The sort filters for the discovery search -->
@@ -409,6 +414,7 @@
 					<list>
 						<ref bean="sortTitle" />
 						<ref bean="sortDateIssued" />
+						<ref bean="sortReputacion" />
 					</list>
 				</property>
 			</bean>
@@ -524,6 +530,8 @@
 				<ref bean="searchFilterIssued" />
 				<ref bean="searchFilterType" />
 				<ref bean="searchFilterObjectType" />
+				<ref bean="searchFilterReputacion" />
+				<ref bean="searchFilterIsRevised" />	
 			</list>
 		</property>
 		<!--The sort filters for the discovery search -->
@@ -536,6 +544,7 @@
 					<list>
 						<ref bean="sortTitle" />
 						<ref bean="sortDateIssued" />
+						<ref bean="sortReputacion" />
 					</list>
 				</property>
 			</bean>
@@ -638,6 +647,10 @@
 				<ref bean="searchFilterSubject" />
 				<ref bean="searchFilterIssued" />
 				<ref bean="searchFilterObjectType" />
+				<ref bean="searchFilterType" />
+				<ref bean="searchFilterObjectType" />
+				<ref bean="searchFilterReputacion" />
+				<ref bean="searchFilterIsRevised" />	
 			</list>
 		</property>
 		<!--The sort filters for the discovery search -->
@@ -650,6 +663,7 @@
 					<list>
 						<ref bean="sortTitle" />
 						<ref bean="sortDateIssued" />
+						<ref bean="sortReputacion" />
 					</list>
 				</property>
 			</bean>
@@ -751,6 +765,8 @@
 				<ref bean="searchFilterSubject" />
 				<ref bean="searchFilterIssued" />
 				<ref bean="searchFilterObjectType" />
+				<ref bean="searchFilterReputacion" />
+				<ref bean="searchFilterIsRevised" />	
 			</list>
 		</property>
 		<!--The sort filters for the discovery search -->
@@ -763,6 +779,7 @@
 					<list>
 						<ref bean="sortTitle" />
 						<ref bean="sortDateIssued" />
+						<ref bean="sortReputacion" />
 					</list>
 				</property>
 			</bean>
@@ -864,6 +881,8 @@
 				<ref bean="searchFilterSubject" />
 				<ref bean="searchFilterIssued" />
 				<ref bean="searchFilterObjectType" />
+				<ref bean="searchFilterReputacion" />
+				<ref bean="searchFilterIsRevised" />	
 			</list>
 		</property>
 		<!--The sort filters for the discovery search -->
@@ -876,6 +895,7 @@
 					<list>
 						<ref bean="sortTitle" />
 						<ref bean="sortDateIssued" />
+						<ref bean="sortReputacion" />
 					</list>
 				</property>
 			</bean>
@@ -1482,6 +1502,22 @@
 		<property name="type" value="date" />
 		<property name="sortOrder" value="VALUE" />
 	</bean>
+	 <bean id="searchFilterReputacion" class="org.dspace.discovery.configuration.DiscoverySearchFilter">
+        <property name="indexFieldName" value="reputacion"/>
+        <property name="metadataFields">
+            <list>
+                <value>oprm.reputacion</value>
+            </list>
+        </property>
+    </bean>
+     <bean id="searchFilterIsRevised" class="org.dspace.discovery.configuration.DiscoverySearchFilter">
+        <property name="indexFieldName" value="isRevised"/>
+        <property name="metadataFields">
+            <list>
+                <value>oprm.item.hasRevision</value>
+            </list>
+        </property>
+    </bean>
 
 	<!--Sort properties -->
 	<bean id="sortTitle"
@@ -1515,5 +1551,7 @@
 		<property name="metadataField" value="crisou.name" />
 	</bean>
 
-
+    <bean id="sortReputacion" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
+        <property name="metadataField" value="oprm.reputacion"/>
+    </bean>
 </beans>
